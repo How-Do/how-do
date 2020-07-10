@@ -2,7 +2,7 @@ CREATE TYPE "categories" AS ENUM (
   'home_improvement',
   'hobbies',
   'life_hacks',
-  'food_and_drick',
+  'food_and_drink',
   'outdoors'
 );
 
@@ -12,7 +12,7 @@ CREATE TABLE "users" (
   "email" varchar(200),
   "password" varchar,
   "isAdmin" boolean,
-  "created_at" timestamp DEFAULT (now())
+  "created_at" timestamp DEFAULT now()
 );
 
 CREATE TABLE "comments" (
@@ -20,7 +20,7 @@ CREATE TABLE "comments" (
   "user_id" int,
   "post_id" int,
   "comment" text,
-  "created_at" timestamp DEFAULT 'now()'
+  "created_at" timestamp DEFAULT now()
 );
 
 CREATE TABLE "posts" (
@@ -30,7 +30,7 @@ CREATE TABLE "posts" (
   "description" text,
   "upvote" int,
   "downvote" int,
-  "created_at" timestamp DEFAULT (now())
+  "created_at" timestamp DEFAULT now()
 );
 
 CREATE TABLE "category" (
