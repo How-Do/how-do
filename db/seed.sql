@@ -11,7 +11,7 @@ CREATE TABLE "users" (
   "full_name" varchar(100),
   "email" varchar(200),
   "password" varchar,
-  "isAdmin" boolean,
+  "is_admin" boolean,
   "created_at" timestamp DEFAULT now()
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE "posts" (
 
 CREATE TABLE "category" (
   "id" serial PRIMARY KEY,
-  "category_name" categoies
+  "category_name" categories
 );
 
 ALTER TABLE "comments" ADD FOREIGN KEY ("post_id") REFERENCES "posts" ("id");
