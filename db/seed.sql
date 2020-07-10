@@ -28,9 +28,10 @@ CREATE TABLE "posts" (
   "user_id" int,
   "category" int,
   "description" text,
-  "upvote" int,
-  "downvote" int,
+  "upvote" int default 0,
+  "downvote" int default 0,
   "created_at" timestamp DEFAULT now()
+  "title" text
 );
 
 CREATE TABLE "category" (
@@ -42,6 +43,6 @@ ALTER TABLE "comments" ADD FOREIGN KEY ("post_id") REFERENCES "posts" ("id");
 
 ALTER TABLE "comments" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
-ALTER TABLE "users" ADD FOREIGN KEY ("id") REFERENCES "posts" ("user_id");
+ALTER TABLE "posts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
 ALTER TABLE "posts" ADD FOREIGN KEY ("category") REFERENCES "category" ("id");
