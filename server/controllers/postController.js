@@ -15,5 +15,12 @@ module.exports = {
         db.get_posts()
             .then(posts => res.status(200).send(posts))
             .catch(error => res.status(500).send(error))
+    },
+    getCategories: (req, res) => {
+        const db = req.app.get('db')
+
+        db.get_categories()
+            .then(categories => res.status(200).send(categories))
+            .catch(error => res.status(500).send(error))
     }
 }
