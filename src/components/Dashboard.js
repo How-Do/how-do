@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
+import axios from "axios";
 
 function Dashboard() {
+    useEffect(()=> {
+        axios.get()
+    },[])
 
     return (
         <div className='dashboard'>
@@ -11,6 +15,9 @@ function Dashboard() {
 
             </div>
             <div className='posts'>
+                <div className='posts-category-title'>
+
+                </div>
 
             </div>
         </div>
