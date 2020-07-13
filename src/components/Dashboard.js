@@ -1,10 +1,17 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 function Dashboard() {
+
+    const [posts, setPosts] = useState([])
+
     useEffect(()=> {
-        axios.get()
+        axios.get('/howdo/posts')
+            .then(res => setPosts(res.data))
+            .catch(error => console.log(error))
     },[])
+
+    const postsMap = posts.map((post) => <div>{post.user_id} </div>)
 
     return (
         <div className='dashboard'>
@@ -18,7 +25,7 @@ function Dashboard() {
                 <div className='posts-category-title'>
 
                 </div>
-
+                {postsMap}
             </div>
         </div>
     )
