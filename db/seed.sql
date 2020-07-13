@@ -20,18 +20,20 @@ CREATE TABLE "comments" (
   "user_id" int,
   "post_id" int,
   "comment" text,
-  "created_at" timestamp DEFAULT now()
+  "created_at" timestamp DEFAULT now(),
+  "comment_pic" text
 );
 
 CREATE TABLE "posts" (
   "id" serial PRIMARY KEY,
   "user_id" int,
-  "category" int,
+  "category" categories,
   "description" text,
   "upvote" int default 0,
   "downvote" int default 0,
-  "created_at" timestamp DEFAULT now()
-  "title" text
+  "created_at" timestamp DEFAULT now(),
+  "title" text,
+  "post_pic" text
 );
 
 CREATE TABLE "category" (
