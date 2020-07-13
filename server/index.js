@@ -22,6 +22,7 @@ app.use(express.static(`${__dirname}/..build`));
 
 //app endpoints
 app.post('/howdo', postCtrl.newHowDo)
+app.get('/howdo/posts', postCtrl.getPosts)
 
 massive({
     connectionString: CONNECTION_STRING,
