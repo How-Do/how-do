@@ -20,7 +20,8 @@ CREATE TABLE "comments" (
   "user_id" int,
   "post_id" int,
   "comment" text,
-  "created_at" timestamp DEFAULT now()
+  "created_at" timestamp DEFAULT now(),
+  "comment_pic" text
 );
 
 CREATE TABLE "posts" (
