@@ -26,12 +26,13 @@ CREATE TABLE "comments" (
 CREATE TABLE "posts" (
   "id" serial PRIMARY KEY,
   "user_id" int,
-  "category" int,
+  "category" categories,
   "description" text,
   "upvote" int default 0,
   "downvote" int default 0,
-  "created_at" timestamp DEFAULT now()
-  "title" text
+  "created_at" timestamp DEFAULT now(),
+  "title" text,
+  "post_pic" text
 );
 
 CREATE TABLE "category" (

@@ -10,6 +10,7 @@ const Header = () => {
     <div className='header-bar'>
       <img src={logo} alt='logo' />
       <input placeholder='How do I...' />
+      <button>Search</button>
       <a href='http://localhost:3001/auth'>
         <button>Log In</button>
       </a>
