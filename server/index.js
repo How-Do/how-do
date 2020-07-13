@@ -3,6 +3,7 @@ const express = require('express'),
     session = require('express-session'),
     massive = require('massive');
 const {SESSION_SECRET, SERVER_PORT, CONNECTION_STRING} = process.env;
+const postCtrl = require('./controllers/postController')
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static(`${__dirname}/..build`));
 //auth endpoints
 
 //app endpoints
+app.post('/howdo', postCtrl.newHowDo)
 
 massive({
     connectionString: CONNECTION_STRING,
