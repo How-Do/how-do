@@ -25,6 +25,7 @@ app.post('/howdo', postCtrl.newHowDo)
 app.get('/howdo/posts', postCtrl.getPosts)
 app.get('/howdo/categories', postCtrl.getCategories)
 
+
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {rejectUnauthorized: false}
