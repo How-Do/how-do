@@ -31,5 +31,24 @@ massive({
 }).then(db => {
     app.set('db', db)
     console.log('The db is connected!')
-    app.listen(SERVER_PORT, () => console.log(`Server receiving trash deposits on port ${SERVER_PORT}`))
+    // app.listen(SERVER_PORT, () => console.log(`Server receiving trash deposits on port ${SERVER_PORT}`))
+    const io = require("socket.io")(
+        app.listen(SERVER_PORT, () =>
+          console.log(`Server listening on ${SERVER_PORT}`)
+        )
+      )
+      app.set('io', io)
+      io.on("connection", (socket) => {
+          socket.join("comments-section")
+          console.log("userconnected", socket.id)
+        socket.on("disconnect", () => {
+            //for a chat app "User has left the room"
+            console.log("userdisconnected", socket.id)
+        })
+        socket.on("create-post", (body) => {
+            db.create_post(body.title)
+            .then((results) => io.in("comments-section").emit("sent-post", results))
+            .catch((err) => console.log(err))
+        })
+      })
 }).catch(error => console.log(error))
