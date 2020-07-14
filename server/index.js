@@ -47,7 +47,7 @@ massive({
             console.log("userdisconnected", socket.id)
         })
         socket.on("create-post", (body) => {
-            db.create_post(body.title)
+            db.add_how_do(body.userId, body.title, body.description, body.imageUrl, body.category)
             .then((results) => io.in("comments-section").emit("sent-post", results))
             .catch((err) => console.log(err))
         })
