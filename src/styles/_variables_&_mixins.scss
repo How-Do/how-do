@@ -1,0 +1,25 @@
+// VARIABLES
+$pink: #f1ccdb;
+$lightGray: #e9e8e8;
+$mediumGray: #a3a3a3;
+$darkGray: #3b3b3b;
+$plum: #5c3d49;
+$lightGreen: #84a438;
+$darkGreen: #697a36;
+
+// MIXINS
+@mixin flexCenter($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin master-input-container {
+  @include flexCenter(column);
+  height: 90%;
+  max-width: 80%;
+  margin: 5%;
+  background-color: white;
+  box-shadow: 2px 2px 3px 3px $darkGray;
+}
