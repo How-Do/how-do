@@ -1,21 +1,17 @@
 import React from 'react'
 import logo from './../images/raccoon-tail.png'
-// import { connect } from 'react-redux'
-// import { setUser } from '../../redux/reducer'
-// import { useHistory } from 'react-router-dom'
-// import { logout } from '../../../server/authController'
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Header = () => {
+  const { loginWithRedirect } = useAuth0();
   return (
     <div className='header-bar'>
       <img src={logo} alt='logo' />
       <input placeholder='How do I...' />
       <button>Search</button>
-      <a href='http://localhost:3001/auth'>
-        <button>Log In</button>
-      </a>
+        <button button onClick={() => loginWithRedirect()}>Log In</button>
     </div>
   )
 }
-
 export default Header
