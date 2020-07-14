@@ -18,7 +18,6 @@ const Header = () => {
       </div>
       <div className='search-block'>
         <input placeholder='How do I...' className='master-input-box' />
-        <button className='master-button'>Search</button>
       </div>
       <div className='links'>
         <Link to={'/'}> Dashboard </Link>
