@@ -23,6 +23,7 @@ app.use(express.static(`${__dirname}/..build`));
 //app endpoints
 app.post('/howdo', postCtrl.newHowDo)
 app.get('/howdo/posts', postCtrl.getPosts)
+app.get('/howdo/categories', postCtrl.getCategories)
 
 
 massive({
