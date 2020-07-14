@@ -21,13 +21,6 @@ function AddPost({socket}) {
         <div className='AddPost'>
             <h3>How Do I...</h3>
             <form name='howDoForm' className='howDoForm'>
-                {/* <button onClick={() => socket.emit("create-post", {title})}>click me!</button>
-                <input 
-                name="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                ></input> */}
-                {/* ------------------- */}
                 <input
                     type='text'
                     placeholder='How Do I...'
