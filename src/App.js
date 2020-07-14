@@ -13,9 +13,9 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      {/* ⬇This is just to see the post form, this will be a route from our new post button ➕*/}
-      <Post/>
       <Dashboard />
+      {/* ⬇This is just to see the post form, this will be a route from our new post button ➕*/}
+      {/* <AddPost/> */}
     </div>
   )
 }
