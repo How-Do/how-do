@@ -1,0 +1,28 @@
+.header-bar {
+  @include flexCenter(row);
+  justify-content: space-between;
+  position: fixed;
+  height: 10vh;
+  width: 100vw;
+  background-color: $darkGray;
+  box-shadow: 2px 2px 2px 2px black;
+  .logo-block {
+    @include flexCenter(row);
+    height: 100%;
+    margin-left: 5px;
+    .logo {
+      height: 80%;
+    }
+    h1 {
+      margin-left: 5px;
+    }
+  }
+  .search-block {
+    width: 60%;
+    height: 70%;
+    font-size: large;
+    ::placeholder {
+      font-size: large;
+    }
+  }
+}
