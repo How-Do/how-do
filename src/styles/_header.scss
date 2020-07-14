@@ -1,6 +1,6 @@
 .header-bar {
   @include flexCenter(row);
-  justify-content: space-between;
+  justify-content: space-around;
   position: fixed;
   height: 10vh;
   width: 100vw;
@@ -18,11 +18,17 @@
     }
   }
   .search-block {
-    width: 60%;
+    //width: 60%;
     height: 70%;
     font-size: large;
+    input {
+      width: 50%;
+    }
     ::placeholder {
       font-size: large;
+    }
+    .links {
+      @include flexCenter(row);
     }
   }
 }
