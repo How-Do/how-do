@@ -21,7 +21,6 @@ const Header = () => {
       </div>
       <div className='links'>
         <Link to={'/'}> Dashboard </Link>
-        <Link to={'/addpost'}> Add Post </Link>
         <Link to={'/post'}> Post </Link>
         <Link to={'/profile'}> Profile </Link>
         <Link to={'/favorites'}> Favorites </Link>
@@ -30,7 +29,7 @@ const Header = () => {
         button
         onClick={() => loginWithRedirect()}
         className='master-button'>
-        Log In
+        Login
       </button>
     </div>
   )
