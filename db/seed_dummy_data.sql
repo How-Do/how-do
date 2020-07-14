@@ -9,6 +9,7 @@ values
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 -- POSTS/QUESTIONS
 insert into posts
 (user_id, category, description, title, post_pic)
@@ -89,6 +90,8 @@ values
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 -- Home Improvement
 insert into posts
 (user_id, category, description, title)
@@ -141,9 +144,10 @@ Field Goal - 3 points.
 Safety - 2 points.`, `Keep Score in Football`),
 (3, 5, `Hang your food pack from a tree limb that is at least 10 feet off the ground. Don't leave food in your tent. Leave your tent flaps open so that a bear can walk in and check for food without resorting to force. Where bears are frequent, secure your food in government-approved “bear-proof” containers.`, `Bear Proof a Campsite`),
 (4, 5, `Place the knife tip into the fish's vent and move the blade up along the belly, cutting to the head. Keep the knife placement shallow so you don't puncture the entrails. Spread open the body, remove the intestines, and scrape the backbone. Cut the head off then rinse the fish in some clean water.`, `Clean a Fish`),
-<<<<<<< Updated upstream
+
 (5, 5, `Look up trails in apps and websites such as Maps 3D Pro, ViewRanger, AllTrails, or Mountain Hub.`, `Find a Hiking Trail`);
->>>>>>> Stashed changes
-=======
+
 (5, 5, `Look up trails in apps and websites such as Maps 3D Pro, ViewRanger, AllTrails, or Mountain Hub.`, `Find a Hiking Trail`);
->>>>>>> Stashed changes
+
+(5, 5, `Look up trails in apps and websites such as Maps 3D Pro, ViewRanger, AllTrails, or Mountain Hub.`, `Find a Hiking Trail`);
+
