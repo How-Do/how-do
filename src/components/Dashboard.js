@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import AddPost from "./AddPost";
+import io from "socket.io-client";
+const socket = io.connect("http://localhost:4000");
 
 function Dashboard() {
 
@@ -25,6 +28,16 @@ function Dashboard() {
     // </div> )
 
     //map of all posts
+
+    //SOCKETS: every time we do a .on it will be an arrow function
+    useEffect(() => {
+        socket.on("sent-post", (body) => {
+            // alert(body.content)
+            console.log(body)
+            setPosts(body)
+        })
+    },[])
+
     const postsMap = posts.map((post) => <div>
 
         {post.title}
@@ -61,10 +74,12 @@ function Dashboard() {
             </div>
             <div className='posts'>
                 <div className='posts-category-title'>
+                {/* <button onClick={() => socket.emit("message", {content: "Message we sent to server"})}>click me!</button> */}
 
                 </div>
                 {postsMap}
             </div>
+            <AddPost socket={socket}/>
         </div>
     )
 }
