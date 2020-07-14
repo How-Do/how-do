@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Post from './Post';
+import {Link} from 'react-router-dom'
 
 function Dashboard() {
 
@@ -28,19 +29,22 @@ function Dashboard() {
     //map of all posts
 
 
-    const postsMap = posts.map((post) => <div>
-
-        {post.title}
+    const postsMap = posts.map((post) => 
+    <Link className='postLink' to={`/post/${post.id}`}>
         <div>
-            {post.description}
-            {post.comment ? <div>
-                Answered!
-            </div> : <div> Looking for guidance.... </div>}
+
+            {post.title}
+            <div>
+                {post.description}
+                {post.comment ? <div>
+                    Answered!
+                </div> : <div> Looking for guidance.... </div>}
+            </div>
+            <div className='user-info'>
+                {post.full_name}
+            </div>
         </div>
-        <div className='user-info'>
-            {post.full_name}
-        </div>
-    </div>)
+    </Link>)
 
     return (
         <div className='dashboard'>
@@ -67,7 +71,6 @@ function Dashboard() {
                 </div>
                 {postsMap}
             </div>
-            <Post/>
         </div>
     )
 }

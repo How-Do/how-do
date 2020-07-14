@@ -16,7 +16,7 @@ export default (
     <Switch>
         <Route exact path='/' component={Dashboard}/>
         <Route path='/addPost' component={AddPost}/>
-        <Route path='/post' component={Post}/>
+        <Route path='/post/:id' component={Post}/>
         <Route path='/profile' component={Profile}/>
         <Route path='/favorites' component={Favorites}/>
     </Switch>
