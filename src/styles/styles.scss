@@ -2,6 +2,9 @@
 @import './header';
 @import './post';
 @import './addpost';
+
+@import './dashboard';
+
 * {
   margin: 0;
   border: 0;
@@ -20,7 +23,7 @@
   border-radius: 2px;
   margin: 4px;
   padding-left: 20px;
-  box-shadow: 1px 1px 1px 1px black;
+  box-shadow: 0px 12px 18px -6px black;
 }
 
 .master-input-box:focus {
@@ -37,7 +40,7 @@
   font-weight: 700;
   // text-shadow: 1px 1px black;
   border: 1px black;
-  box-shadow: 1px 1px 1px 2px black;
+  box-shadow: 0px 12px 18px -6px black;
 }
 
 .master-button:hover {
@@ -59,7 +62,6 @@ h6 {
 p {
   font-weight: 500;
   font-size: smaller;
-  font-style: italic;
   margin: 5%;
   text-align: justify;
 }

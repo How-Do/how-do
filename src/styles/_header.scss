@@ -1,7 +1,8 @@
 .header-bar {
   @include flexCenter(row);
+  position: fixed;
   justify-content: space-around;
-  height: 10vh;
+  height: 12vh;
   width: 100vw;
   background-color: $darkGray;
   box-shadow: 2px 2px 2px 2px black;
