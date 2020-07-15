@@ -9,7 +9,9 @@ ReactDOM.render(
     <Auth0Provider
         domain="how-do.us.auth0.com"
         clientId="ETRgoSz4hKzY7VgRK9P9JX0e2gEyvsqf"
-        redirectUri={window.location.origin}
+        redirectUri="http://localhost:3000/#/profile"
+        audience="https://how-do.us.auth0.com/api/v2/"
+        scope="read:current_user update:current_user_metadata"
     >
         <HashRouter>
             <App/>
