@@ -59,8 +59,9 @@ massive({
             .catch((err) => console.log(err))
         })
         socket.on("create-comment", (body) => {
-            db.add_comment(body.userId, body.comment, body.commentPic, body.postId)
-            .then((results) => io.in("comments-section").emit("sent-post", results))
+            console.log("create-comment")
+            db.add_comment(body.userId, body.postId, body.comment, body.commentPic)
+            .then((results) => io.in("comments-section").emit("sent-comment", results))
             .catch((err) => console.log(err))
         })
       })

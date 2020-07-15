@@ -35,6 +35,13 @@ function Post(props) {
       .catch((error) => console.log(error));
   }, []);
 
+  useEffect(() => {
+    props.socket.on("sent-comment", (body) => {
+      // console.log(body)
+      setCommentsArr(body);
+    });
+  }, []);
+
   const commentsMap = commentsArr.map((comment) => (
     <div>
       {comment.comment}
@@ -62,7 +69,7 @@ function Post(props) {
       </div>
       <div className="Comments-Container">
         <br />
-        <AddComment id={postId} socket={props.socket}/>
+        <AddComment id={postId} socket={props.socket} />
       </div>
       <div>{commentsMap}</div>
     </div>
