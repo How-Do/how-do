@@ -21,7 +21,9 @@ CREATE TABLE "comments" (
   "post_id" int,
   "comment" text,
   "created_at" timestamp DEFAULT now(),
-  "comment_pic" text
+  "comment_pic" text,
+   "upvote" int default 0,
+  "downvote" int default 0
 );
 
 CREATE TABLE "posts" (
@@ -29,8 +31,6 @@ CREATE TABLE "posts" (
   "user_id" int,
   "category" categories,
   "description" text,
-  "upvote" int default 0,
-  "downvote" int default 0,
   "created_at" timestamp DEFAULT now(),
   "title" text,
   "post_pic" text
