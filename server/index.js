@@ -3,7 +3,10 @@ const express = require('express'),
     session = require('express-session'),
     massive = require('massive');
 const {SESSION_SECRET, SERVER_PORT, CONNECTION_STRING} = process.env;
-const postCtrl = require('./controllers/postController')
+
+//Controllers
+const postCtrl = require('./controllers/postController');
+const commentCtrl = require('./controllers/commentController');
 
 const app = express();
 
@@ -25,6 +28,8 @@ app.post('/howdo', postCtrl.newHowDo)
 app.get('/howdo/posts', postCtrl.getPosts)
 app.get('/howdo/post/:id', postCtrl.getPost)
 app.get('/howdo/categories', postCtrl.getCategories)
+app.get('/howdo/comments/:id', commentCtrl.getComments)
+app.post('/howdo/comment', commentCtrl.newComment)
 
 
 massive({
@@ -49,6 +54,11 @@ massive({
         })
         socket.on("create-post", (body) => {
             db.add_how_do(body.userId, body.title, body.description, body.imageUrl, body.category)
+            .then((results) => io.in("comments-section").emit("sent-post", results))
+            .catch((err) => console.log(err))
+        })
+        socket.on("create-comment", (body) => {
+            db.add_comment(body.userId, body.comment, body.commentPic, body.postId)
             .then((results) => io.in("comments-section").emit("sent-post", results))
             .catch((err) => console.log(err))
         })

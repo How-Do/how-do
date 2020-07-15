@@ -30,8 +30,9 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      {routes}
+      {routes({socket})}
       <AddPost socket={socket}/>
+
     </div>
   )
 }
