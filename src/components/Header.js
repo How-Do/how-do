@@ -9,7 +9,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-  const { loginWithRedirect } = useAuth0()
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
+
   return (
     <div className='header-bar'>
       <div className='logo-block'>
@@ -25,14 +26,24 @@ const Header = () => {
         <Link to={'/profile'}> Profile </Link>
         <Link to={'/favorites'}> Favorites </Link>
       </div>
-      <button
-        onClick={() => loginWithRedirect()}
-        className='master-button'>
-        Login
-      </button>
+      <div>
+        {isAuthenticated ? (
+          <div>
+            <button className='master-button' onClick={() => logout()}>
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <div>
+            <button
+              onClick={() => loginWithRedirect()}
+              className='master-button'>
+              Login
+            </button>
+          </div>
+        )}
+      </div>
     </div>
-    
-    
   )
 }
 export default Header
