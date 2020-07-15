@@ -26,12 +26,13 @@ const Header = () => {
         <Link to={'/favorites'}> Favorites </Link>
       </div>
       <button
-        button
         onClick={() => loginWithRedirect()}
         className='master-button'>
         Login
       </button>
     </div>
+    
+    
   )
 }
 export default Header

@@ -20,6 +20,7 @@ app.use(express.static(`${__dirname}/..build`));
 
 //auth endpoints
 
+
 //app endpoints
 app.post('/howdo', postCtrl.newHowDo)
 app.get('/howdo/posts', postCtrl.getPosts)
