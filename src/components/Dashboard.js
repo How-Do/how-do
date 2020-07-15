@@ -2,11 +2,16 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Post from './Post';
 import {Link} from 'react-router-dom'
+import hobbies from '../images/hobbies.png';
+import homeimp from '../images/homeimprovement.png';
+import outdoors from '../images/outdoors.png';
+import food from '../images/Food&Drink.png';
+import lifehacks from '../images/lifehacks.png';
 
 function Dashboard() {
 
     const [posts, setPosts] = useState([])
-    const [categories, setCategories] = useState([])
+    // const [categories, setCategories] = useState([])
 
 
     useEffect(() => {
@@ -15,24 +20,12 @@ function Dashboard() {
             .catch(error => console.log(error))
     }, [])
 
-    // useEffect(() => {
-    //     axios.get('/howdo/categories')
-    //         .then(res => setCategories(res.data))
-    //         .catch(error => console.log(error))
-    // }, [])
-    //
-    // const categoryMap = categories.map((category) => <div>
-    //     {category}
-    //     {category === 'home_improvement'}
-    // </div> )
-
     //map of all posts
 
 
     const postsMap = posts.map((post) => 
     <Link className='postLink' to={`/post/${post.id}`}>
         <div>
-
             {post.title}
             <div>
                 {post.description}
@@ -50,7 +43,41 @@ function Dashboard() {
         <div className='dashboard'>
             <div className='categories'>
                 <div className='each-category'>
-                    {/*{categoryMap}*/}
+                    <a>
+                        <img
+                            src={hobbies}
+                            className='hobbies'
+                            alt='hobby-category-pic'
+                            />
+                    </a>
+                    <a>
+                        <img
+                            src={outdoors}
+                            className='outdoors'
+                            alt='outdoor-category-pic'
+                        />
+                    </a>
+                    <a>
+                        <img
+                            src={homeimp}
+                            className='homeimp'
+                            alt='homeimprovement-category-pic'
+                        />
+                    </a>
+                    <a>
+                        <img
+                            src={food}
+                            className='food'
+                            alt='food&drink-category-pic'
+                        />
+                    </a>
+                    <a>
+                        <img
+                            src={lifehacks}
+                            className='likehacks'
+                            alt='lifehacks-category-pic'
+                        />
+                    </a>
                 </div>
 
             </div>
