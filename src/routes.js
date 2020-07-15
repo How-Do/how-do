@@ -12,12 +12,13 @@ import Profile from "./components/Profile";
 // import Recent from "./components/Recent";
 // import Stats from './components/Stats';
 
-export default (
-    <Switch>
-        <Route exact path='/' component={Dashboard}/>
-        <Route path='/addPost' component={AddPost}/>
-        <Route path='/post/:id' component={Post}/>
-        <Route path='/profile' component={Profile}/>
-        <Route path='/favorites' component={Favorites}/>
-    </Switch>
-)
+
+export default props => {
+    return <Switch>
+         <Route exact path='/' render={routerProps => <Dashboard {...props} {...routerProps}/>}/>
+         <Route path='/addPost' component={AddPost}/>
+         <Route path='/post/:id' render={routerProps => <Post {...props} {...routerProps}/>}/>
+         <Route path='/profile' component={Profile}/>
+         <Route path='/favorites' component={Favorites}/>
+     </Switch>
+}

@@ -16,22 +16,12 @@ const socket = io.connect("http://localhost:4000");
 
 function App() {
 
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    socket.on("sent-post", (body) => {
-        // alert(body.content)
-        console.log(body)
-        setPosts(body)
-    })
-  },[])
-
-
   return (
     <div className='App'>
       <Header />
-      {routes}
+      {routes({socket})}
       <AddPost socket={socket}/>
+
     </div>
   )
 }

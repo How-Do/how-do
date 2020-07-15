@@ -1,67 +1,77 @@
 import React, { useState, useEffect } from "react";
-import AddComment from './AddComment';
+import AddComment from "./AddComment";
+import axios from "axios";
 
 //This component still needs to be updated to be able to pull the user from session once login is working
 
-function Post() {
+function Post(props) {
   const [userId, setUserId] = useState(1); //<-- This needs to be dynamic
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [category, setCategory] = useState("");
+  const [timestamp, setTimestamp] = useState("");
+  const [commentsArr, setCommentsArr] = useState([]);
+  const [postId, setPostId] = useState(props.match.params.id);
+
+  useEffect(() => {
+    console.log("Props:", props);
+
+    axios.get(`/howdo/post/${postId}`).then((res) => {
+      console.log(res.data);
+      setUserId(res.data.user_id);
+      setTitle(res.data.title);
+      setDescription(res.data.description);
+      setImageUrl(res.data.post_pic);
+      setCategory(res.data.category);
+      setTimestamp(res.data.created_at);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`/howdo/comments/${postId}`)
+      .then((res) => setCommentsArr(res.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    props.socket.on("sent-comment", (body) => {
+      // console.log(body)
+      setCommentsArr(body);
+    });
+  }, []);
+
+  const commentsMap = commentsArr.map((comment) => (
+    <div>
+      {comment.comment}
+      <div className="user-info">{comment.full_name}</div>
+      <div className="">{comment.created_at}</div>
+      {/* NEED TO ADD UPVOTE DOWNVOTE TO DATABASE AND HERE */}
+      {/* <div className=''>
+                {comment.upvote}
+                {comment.downvote}
+            </div> */}
+    </div>
+  ));
 
   return (
-    <div className="Post-Container" style={{backgroundColor: "lightblue"}}>
+    <div className="Post-Container" style={{ backgroundColor: "lightblue" }}>
       <div>
-        <p>Category</p>
-        <p>Username of Poster</p>
-        <div>Timestamp</div>
+        <p>{category}</p>
+        <p>Username</p>
+        <div>{timestamp}</div>
       </div>
       <div>
-        <p>Title</p>
-        <img />
-        <p>Description</p>
+        <p>{title}</p>
+        <img src={imageUrl} alt="post image" width="200" height="200" />
+        <p>{description}</p>
       </div>
       <div className="Comments-Container">
-        <AddComment/>
+        <br />
+        <AddComment id={postId} socket={props.socket} />
       </div>
-
-      {/* <form name='howDoForm' className='howDoForm'> */}
-      {/* <input
-                    type='text'
-                    placeholder='How Do I...'
-                    name='title'
-                    value={title}
-                    required
-                    onChange={(e) => setTitle(e.target.value)}/>
-                <textarea
-                    placeholder='Add any additional details/description here...🦝'
-                    name='description'
-                    rows='3'
-                    cols='30'
-                    required
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}/>
-                <input
-                    type='url'
-                    placeholder='Add an image url here if you would like...'
-                    name='image_url'
-                    value={imageUrl}
-                    required
-                    onChange={(e) => setImageUrl(e.target.value)}/>
-                <select id='status' name='category' onChange={(e) => setCategory(e.target.value)}>
-                    <option value=''>What can does this belong in?</option>
-                    <option value='home_improvement'>Home Improvement</option>
-                    <option value='hobbies'>Hobbies</option>
-                    <option value='life_hacks'>Life Hacks</option>
-                    <option value='food_and_drink'>Food & Drink</option>
-                    <option value='outdoors'>Outdoors</option>
-                </select>   
-                <button
-                    type='submit'
-                    value='addHowDo'
-                    onClick={() => socket.emit("create-post", {userId, title, description, imageUrl, category})}>Save Changes</button> */}
-      {/* </form> */}
+      <div>{commentsMap}</div>
     </div>
   );
 }
