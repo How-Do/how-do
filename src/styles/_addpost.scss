@@ -1,0 +1,229 @@
+@import "./variables_&_mixins";
+
+.AddPost-green-container {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  right: 2vw;
+  bottom: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 12px 18px -6px black;
+  @include opaque-blur;
+}
+
+.AddPost-green-container:hover {
+  box-shadow: $whiteGlow;
+  background-color: rgb(255, 255, 255);
+}
+
+.box {
+  position: fixed;
+  left:-170vw;
+  top: -65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  @include opaque-blur;
+  min-height: 60vw;
+  max-height: 60vw;
+  width: 60vw;
+  box-shadow: 0px 12px 18px -6px black;
+  border-radius: 5px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.651);
+  border: 1px solid rgb(95, 94, 94);
+  backdrop-filter: blur(6px);
+}
+.box-entered {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  left:-70vw;
+  top: -65vh;
+  background: rgba(0, 0, 0, 0.651);
+  border: 1px solid rgb(95, 94, 94);
+  backdrop-filter: blur(50%);
+}
+.how-text{
+    font-size:40pt;
+    margin-bottom: 10px;
+    // background: rgba(0, 0, 0, 0.651);
+    // box-shadow: 0px 0px 18px 0px black;
+    // padding-right:3px;
+    // padding-left:3px;
+}
+
+.add-post-form {
+  width: 50vw;
+  height: 50vw;
+  background: rgba(0, 0, 0, 0.651);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .addpost-form-text{
+   margin:0;
+   font-size:14pt;
+   font-weight: 600;
+ }
+
+ .addpost-textarea{
+   margin-bottom: 10px;
+   border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
+  padding:5px;
+ }
+ .addpost-textarea:focus{
+  margin-bottom: 10px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding:5px;
+}
+
+ .addpost-form-input{
+  width: 80%;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color:  white;
+  font-size: 16px;
+ }
+
+ .addpost-dropdown{
+   margin-top: 5px;
+   background: $lightGrayGradient;
+   color: white;
+   padding:5px;
+   border-radius: 5px;
+   font-size: 16px;
+ }
+
+ .addpost-dropdown:hover{
+  background: $blackGradient;
+  color: white;
+  padding:5px;
+  border-radius: 5px;
+  font-size: 16px;
+ }
+
+.addpost-submit-button{ 
+ border: none;
+ outline: none;
+ height: 40px;
+ width: 80px;
+ margin:20px;
+ padding: 10px;
+ background: $lightGrayGradient; 
+ color: white;
+ font-size: 18px;
+ border-radius: 5px;
+}
+.addpost-submit-button:hover{
+ cursor: pointer;
+ background: $blackGradient;
+ background-blend-mode: multiply;
+}
+
+.box-entering {
+  animation-name: entering;
+  animation-duration: 2s;
+}
+.box-exiting {
+  animation-name: leaving;
+  animation-duration: 2s;
+}
+
+@keyframes entering {
+  0% {
+    transform:translateX(0);
+  }
+  100% {
+      transform:translateX(166%);
+  }
+}
+
+@keyframes leaving {
+  0% {
+    transform:translateX(160%);
+  }
+  100% {
+    transform:translateX(0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .add-post-form {
+    width: 40vw;
+    height: 40vw;
+  }
+  .box {
+    position: fixed;
+    left:-70vw;
+    top: 20vh;
+    padding: 40px;
+    min-height: 45vw;
+    max-height: 60vw;
+    width: 50vw;
+
+    // position: fixed;
+    // left:-170vw;
+    // top: -65vh;
+  }
+  .box-entered {
+    position: fixed;
+    left:-70vw;
+    top: -65vh;
+    background: rgba(0, 0, 0, 0.651);
+  border: 1px solid rgb(95, 94, 94);
+  backdrop-filter: blur(6px);
+  }
+}
+
+/* ====================== Mobile styles ========================== */
+
+
+
+/*End mobile and up styles*/
+
+
+/* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
+@media only screen and (min-width: 768px) {}
+
+  /*end media query*/
+  
+  /*End tablet and up styles*/
+  
+  /* ====================== Tablet Landscape and Up (Overrides Mobile and Tablet Portrait Styles) ========================== */
+  
+  
+  
+  /*end media query*/
+  /*End landscape tablet and up styles*/
+  
+  
+  /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
+  @media only screen and (min-width: 1200px) {
+  
+  
+  }
+  /*end media query*/
+  /*End desktop only styles*/

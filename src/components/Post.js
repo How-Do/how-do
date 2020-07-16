@@ -16,7 +16,6 @@ function Post(props) {
 
   useEffect(() => {
     console.log("Props:", props);
-
     axios.get(`/howdo/post/${postId}`).then((res) => {
       console.log(res.data);
       setUserId(res.data.user_id);
