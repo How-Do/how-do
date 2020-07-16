@@ -28,6 +28,7 @@ function AddPost({ socket }) {
     setDescription("");
     setImageUrl("");
     setCategory("");
+    document.getElementById('howDoForm').reset()
   }
 
   return (
@@ -36,7 +37,7 @@ function AddPost({ socket }) {
         {(status) => (
           <div className={`box box-${status}`}>
             <h3 className="how-text">Ask a Question</h3>
-            <form className="add-post-form">
+            <form className="add-post-form" id="howDoForm">
             {/* <h3 className="how-text">Ask a Question</h3> */}
             <p className="addpost-form-text">How Do I:</p>
               <input className="addpost-form-input"
@@ -73,7 +74,7 @@ function AddPost({ socket }) {
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option  className="addpost-dropdown"
-                value="">What bin does this belong in?</option>
+                value="" selected>What bin does this belong in?</option>
                 <option  className="addpost-dropdown"value="home_improvement">Home Improvement</option>
                 <option  className="addpost-dropdown"
                 value="hobbies">Hobbies</option>
