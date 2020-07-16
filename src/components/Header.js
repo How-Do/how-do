@@ -1,4 +1,5 @@
 import React from 'react'
+// import logo from './../images/raccoon-tail-glow.png'
 import logo from './../images/big-raccoon-tail.png'
 import './../styles/styles.css'
 // import { connect } from 'react-redux'
@@ -18,11 +19,10 @@ const Header = () => {
         <h1>howDo</h1>
       </div>
       <div className='search-block'>
-        <input placeholder='How do I...' className='master-input-box' />
+        <input placeholder='Search' className='master-input-box' />
       </div>
       <div className='links'>
         <Link to={'/'}> Dashboard </Link>
-        <Link to={'/post'}> Post </Link>
         <Link to={'/profile'}> Profile </Link>
         <Link to={'/favorites'}> Favorites </Link>
       </div>

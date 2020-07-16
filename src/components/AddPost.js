@@ -31,50 +31,61 @@ function AddPost({ socket }) {
   }
 
   return (
-    <div className="AddPost-inner-container">
+    <div className="AddPost-green-container">
       <Transition timeout={2000} in={isActive} appear>
         {(status) => (
           <div className={`box box-${status}`}>
-            <h3 className="how-text">How Do I...</h3>
+            <h3 className="how-text">Ask a Question</h3>
             <form className="add-post-form">
-              <input
+            {/* <h3 className="how-text">Ask a Question</h3> */}
+            <p className="addpost-form-text">How Do I:</p>
+              <input className="addpost-form-input"
                 type="text"
-                placeholder="How Do I..."
+                //placeholder="How Do I..."
                 name="title"
                 value={title}
                 required
                 onChange={(e) => setTitle(e.target.value)}
               />
-              <textarea
-                placeholder="Add any additional details/description here...🦝"
+              <p className="addpost-form-text">Additional Details:</p>
+              <textarea className="addpost-textarea"
+                //placeholder="Add any additional details/description here...🦝"
                 name="description"
                 rows="3"
-                cols="30"
+                cols="50"
                 required
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
-              <input
+              <p className="addpost-form-text">Optional Image URL:</p>
+              <input className="addpost-form-input"
                 type="url"
-                placeholder="Add an image url here if you would like..."
+                //placeholder="Add an image url here if you would like..."
                 name="image_url"
                 value={imageUrl}
                 required
                 onChange={(e) => setImageUrl(e.target.value)}
               />
-              <select
+              <p className="addpost-form-text">Category:</p>
+              <select className="addpost-dropdown"
                 id="status"
                 name="category"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="">What can does this belong in?</option>
-                <option value="home_improvement">Home Improvement</option>
-                <option value="hobbies">Hobbies</option>
-                <option value="life_hacks">Life Hacks</option>
-                <option value="food_and_drink">Food & Drink</option>
-                <option value="outdoors">Outdoors</option>
+                <option  className="addpost-dropdown"
+                value="">What bin does this belong in?</option>
+                <option  className="addpost-dropdown"value="home_improvement">Home Improvement</option>
+                <option  className="addpost-dropdown"
+                value="hobbies">Hobbies</option>
+                <option  className="addpost-dropdown"
+                value="life_hacks">Life Hacks</option>
+                <option  className="addpost-dropdown"
+                value="food_and_drink">Food & Drink</option>
+                <option  className="addpost-dropdown"
+                value="outdoors">Outdoors</option>
               </select>
-              <button type="submit" value="addHowDo" onClick={addPost}>
+              <button className="addpost-submit-button"
+              type="submit" value="addHowDo" onClick={addPost}>
                 Ask
               </button>
             </form>

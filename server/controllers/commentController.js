@@ -13,7 +13,7 @@ module.exports = {
     getComments: (req, res) => {
         const db = req.app.get('db')
         const {id} = req.params
-        console.log(typeof id, id);
+        //console.log(typeof id, id);
 
         db.get_comments(+id)
             .then(comments => res.status(200).send(comments))
