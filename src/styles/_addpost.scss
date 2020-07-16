@@ -1,117 +1,110 @@
 @import "./variables_&_mixins";
 
-.AddPost-container {
-  background: rgb(173, 230, 195);
-  width: 900px;
-  height: 900px;
+// .AddPost-container {
+//   background: rgb(173, 230, 195);
+//   width: 900px;
+//   height: 900px;
+// }
+
+.add-post-form {
+  width: 50vw;
+  height: 50vw;
+  background: rgba(0, 0, 0, 0.767);
+  border-radius: 5px;
+//   display: flex;
+//   justify-content: column;
+//   align-items: center;
+ }
+
+.how-text{
+    font-size:40pt;
 }
 
 .AddPost-inner-container {
-  background: lightblue;
-  width: 800px;
-  height: 800px;
-}
-
-.add-post-form {
-  background: rgb(14, 72, 92);
-  width: 200px;
-  height: 200px;
-}
-
-.AddPost-inner-container{
-   display: flex;
-  align-items: center;
+  display: flex;
+  position: fixed;
   justify-content: center;
+  align-items: center;
+  right: 2vw;
+  bottom: 100px;
+  background: #84a438;
+  width: 75px;
+  height: 75px;
+  border-radius: 5px;
   color: rgb(255, 255, 255);
-  font-family: arvo;
-  font-size: 14pt;
-  flex-wrap: nowrap;
-  position: absolute;
-  left: 20vw;
-  padding: 15px;
+  box-shadow: 0px 12px 18px -6px black;
 }
 
-//   .hamburger-container .h-text {
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//     -webkit-box-align: center;
-//         -ms-flex-align: center;
-//             align-items: center;
-//     -webkit-box-pack: center;
-//         -ms-flex-pack: center;
-//             justify-content: center;
-//     color: black;
-//     font-family: arvo;
-//     font-size: 14pt;
-//     -ms-flex-wrap: nowrap;
-//         flex-wrap: nowrap;
-//     margin: 10px;
-//   }
+// .hamburger-container .h-text {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   color: black;
+//   font-family: arvo;
+//   font-size: 14pt;
+//   flex-wrap: nowrap;
+//   margin: 10px;
+// }
 
-//   .hamburger-container .h-text:hover {
-//     color: #1d814f;
-//     font-size: 16pt;
-//   }
+// .hamburger-container .h-text:hover {
+//   color: #1d814f;
+//   font-size: 16pt;
+// }
 
 .box {
-  position: absolute;
-  left: -350px;
-  top: 55px;
+  position: fixed;
+  left:-70vw;
+  top: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
-  list-style-type: none;
   flex-direction: column;
   flex-wrap: nowrap;
-  background-image: linear-gradient(to left, #383636 0%, rgb(37, 36, 36) 90%);
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  min-height: 300px;
-  max-height: 500px;
-  width: 200px;
+  background: rgba(0, 0, 0, 0.5);
+//   background-image: linear-gradient(to left, #383636 0%, rgb(37, 36, 36) 90%);
+  //background-size: cover;
+  //background-position: center;
+  min-height: 60vw;
+  max-height: 70vw;
+  width: 60vw;
   box-shadow: 0px 12px 18px -6px black;
+  border-radius: 5px;
   z-index: 10;
 }
 
 .box-entered {
-  left: 2vw;
-  top: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  list-style-type: none;
   flex-direction: column;
-
-  flex-wrap: nowrap;
+  left:18vw;
+  top: 20vh;
 }
 
-.box-entering {
-  animation-name: entering;
-  animation-duration: 2s;
-   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  list-style-type: none;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
+// .box-entering {
+//   animation-name: entering;
+//   animation-duration: 2s;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 40px;
+//   list-style-type: none;
+//   flex-direction: column;
+//   flex-wrap: nowrap;
+// }
 
-.box-exiting {
-  animation-name: leaving;
-  animation-duration: 1s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  list-style-type: none;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
+// .box-exiting {
+//   animation-name: leaving;
+//   animation-duration: 1s;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 40px;
+//   list-style-type: none;
+//   flex-direction: column;
+//   flex-wrap: nowrap;
+// }
 
 //   @-webkit-keyframes entering {
 //     0% {

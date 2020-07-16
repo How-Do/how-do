@@ -35,7 +35,7 @@ function AddPost({ socket }) {
       <Transition timeout={2000} in={isActive} appear>
         {(status) => (
           <div className={`box box-${status}`}>
-            <h3>How Do I...</h3>
+            <h3 className="how-text">How Do I...</h3>
             <form className="add-post-form">
               <input
                 type="text"
