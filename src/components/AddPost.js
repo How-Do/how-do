@@ -22,12 +22,13 @@ function AddPost({ socket }) {
     setDescription("");
     setImageUrl("");
     setCategory("");
+    document.getElementById('howDoForm').reset()
   }
 
   return (
     <div className="AddPost">
       <h3>How Do I...</h3>
-      <form name="howDoForm" className="howDoForm">
+      <form name="howDoForm" className="howDoForm" id="howDoForm">
         <input
           type="text"
           placeholder="How Do I..."
@@ -54,11 +55,11 @@ function AddPost({ socket }) {
           onChange={(e) => setImageUrl(e.target.value)}
         />
         <select
-          id="status"
+          id="selectCategory"
           name="category"
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="">What can does this belong in?</option>
+          <option value="" selected>What can does this belong in?</option>
           <option value="home_improvement">Home Improvement</option>
           <option value="hobbies">Hobbies</option>
           <option value="life_hacks">Life Hacks</option>
