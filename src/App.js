@@ -20,7 +20,7 @@ function App() {
     <div className='App'>
       <Header />
       {routes({socket})}
-      <AddPost socket={socket}/>
+      <AddPost className="AddPost-container" socket={socket}/>
 
     </div>
   )
