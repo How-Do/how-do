@@ -2,14 +2,51 @@
   @include flexCenter(row);
   padding-top: 12vh;
   align-items: flex-start;
-  background-image: linear-gradient(to left, #383636 0%, rgb(37, 36, 36) 90%);
-  height: 90%;
-  width: 100%;
+  //background: $backgroundGradient;
+  //height: 90%;
+  //width: 100%;
+
+  background-image:url("https://cdn.pixabay.com/photo/2017/06/19/23/10/raccoon-2421188_960_720.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+   min-width: 100vw;
+
+
+
+  // .categories {
+  //   width: 50%;
+  //   position: sticky;
+  //   top: -10vh;
+  //   .each-category {
+  //     @include flexCenter(column);
+  //     background: rgba(0, 0, 0, 0.651);
+  //     border: 1px solid rgb(95, 94, 94);
+  //     position: sticky;
+  //     margin-top: 10px;
+  //     margin-left: 10px;
+  //     padding-top: 10px;
+  //     padding-bottom: 10px;
+  //     img {
+  //       width: 80%;
+  //       margin-top: 10px;
+  //       margin-bottom: 10px;
+  //       box-shadow: 0px 12px 18px -6px black;
+  //     }
+  //     img:hover{
+  //       box-shadow: $whiteGlow;
+  //     }
+  //   }
+  // }
   .categories {
-    width: 50%;
+    width: 27%;
+    position: sticky;
+    top: 12vh;
     .each-category {
       @include flexCenter(column);
-      background-color: $darkGray;
+      background: rgba(0, 0, 0, 0.651);
+      border: 1px solid rgb(95, 94, 94);
       position: sticky;
       margin-top: 10px;
       margin-left: 10px;
@@ -21,11 +58,15 @@
         margin-bottom: 10px;
         box-shadow: 0px 12px 18px -6px black;
       }
+      img:hover{
+        box-shadow: $whiteGlow;
+      }
     }
   }
   .column-2 {
     .about {
-      background-color: $darkGray;
+      background: rgba(0, 0, 0, 0.651);
+      border: 1px solid rgb(95, 94, 94);
       color: $lightGray;
       margin-top: 10px;
       margin-left: 7%;

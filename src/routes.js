@@ -1,16 +1,10 @@
 import React from "react";
 import {Switch, Route} from 'react-router-dom';
 import AddPost from "./components/AddPost";
-// import AddComment from "./components/AddComment";
-// import BarChart from "./components/BarChart";
 import Dashboard from "./components/Dashboard";
 import Favorites from "./components/Favorites"
-// import Landing from "./components/Landing";
-// import Login from "./components/Login";
 import Post from "./components/Post";
 import Profile from "./components/Profile";
-// import Recent from "./components/Recent";
-// import Stats from './components/Stats';
 
 
 export default props => {
