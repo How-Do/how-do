@@ -7,6 +7,7 @@ const {SESSION_SECRET, SERVER_PORT, CONNECTION_STRING} = process.env;
 //Controllers
 const postCtrl = require('./controllers/postController');
 const commentCtrl = require('./controllers/commentController');
+const chartCtrl = require('./controllers/chartController')
 
 const app = express();
 
@@ -32,6 +33,9 @@ app.get('/howdo/categories', postCtrl.getCategories)
 app.get('/howdo/comments/:id', commentCtrl.getComments)
 app.post('/howdo/comment', commentCtrl.newComment)
 
+//chart endpoints
+app.get('/howdo/chartpost/:id', chartCtrl.getPostsCount)
+app.get('/howdo/chartcomment/:id', chartCtrl.getCommentsCount)
 
 massive({
     connectionString: CONNECTION_STRING,
