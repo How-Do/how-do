@@ -27,7 +27,7 @@ CREATE TABLE "comments" (
 );
 
 CREATE TABLE "posts" (
-  "id" serial PRIMARY KEY,
+  "post_id" serial PRIMARY KEY,
   "user_id" int,
   "category" categories,
   "description" text,
@@ -41,7 +41,7 @@ CREATE TABLE "category" (
   "category_name" categories
 );
 
-ALTER TABLE "comments" ADD FOREIGN KEY ("post_id") REFERENCES "posts" ("id");
+ALTER TABLE "comments" ADD FOREIGN KEY ("post_id") REFERENCES "posts" ("post_id");
 
 ALTER TABLE "comments" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
