@@ -36,7 +36,7 @@ function Dashboard(props) {
     //map of all posts - if a filter has been applied it will only show the posts the match the filter, otherwise it will show all posts.
     const postsMap = filteredPosts[0] ? filteredPosts.map((post) => (
                 <Link className='postLink' to={`/post/${post.post_id}`} >
-                    <div>
+                    <div className='post-container'>
                         {post.title}
                         <div>
                             {post.description}
@@ -52,7 +52,7 @@ function Dashboard(props) {
             )) :
         posts.map((post, i) => (
             <Link className='postLink' to={`/post/${post.post_id}`} >
-                <div>
+                <div className='post-container'>
                     {post.title}
                     <div>
                         {post.description}
