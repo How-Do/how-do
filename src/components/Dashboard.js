@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Post from './Post'
 import { Link } from 'react-router-dom'
 import hobbies from '../images/hobbies.png'
 import homeimp from '../images/homeimprovement.png'
@@ -31,7 +30,7 @@ function Dashboard(props) {
 
   //map of all posts
   const postsMap = posts.map((post) => (
-    <Link className='postLink' to={`/post/${post.id}`}>
+    <Link className='postLink' to={`/post/${post.post_id}`} key={post.post_id}>
       <div>
         {post.title}
         <div>

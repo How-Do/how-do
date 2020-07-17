@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './App.css'
 import Header from './components/Header'
-import Post from './components/Post'
-import Dashboard from './components/Dashboard'
 import './styles/styles.css'
 import routes from './routes'
 import AddPost from "./components/AddPost";
