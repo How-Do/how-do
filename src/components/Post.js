@@ -12,11 +12,10 @@ function Post(props) {
   const [category, setCategory] = useState("");
   const [timestamp, setTimestamp] = useState("");
   const [commentsArr, setCommentsArr] = useState([]);
-  const [postId, setPostId] = useState(props.match.params.id);
+  const [postId, setPostId] = useState(props.match.params.post_id);
 
   useEffect(() => {
     console.log("Props:", props);
-
     axios.get(`/howdo/post/${postId}`).then((res) => {
       console.log(res.data);
       setUserId(res.data.user_id);
@@ -64,7 +63,7 @@ function Post(props) {
       </div>
       <div>
         <p>{title}</p>
-        <img src={imageUrl} alt="post image" width="200" height="200" />
+        <img src={imageUrl} alt="post" width="200" height="200" />
         <p>{description}</p>
       </div>
       <div className="Comments-Container">

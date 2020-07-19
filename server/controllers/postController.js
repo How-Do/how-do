@@ -11,16 +11,24 @@ module.exports = {
         },
     getPosts: (req, res) => {
         const db = req.app.get('db')
+        const {search} = req.query
+        // console.log(typeof search, 'search', search)
 
-        db.get_posts()
-            .then(posts => res.status(200).send(posts))
-            .catch(error => res.status(500).send(error))
+        if (search) {
+            db.search_posts(search)
+                .then(posts => res.status(200).send(posts))
+                .catch(error => res.status(500).send(error))
+
+        } else {
+            db.get_posts()
+                .then(posts => res.status(200).send(posts))
+                .catch(error => res.status(500).send(error))
+        }
     },
     getPost: (req, res) => {
         const db = req.app.get('db')
         const {id} = req.params
-        console.log(typeof id, id);
-        
+
 
         db.get_post(+id)
             .then(post => res.status(200).send(post[0]))

@@ -4,8 +4,14 @@ $lightGray: #e9e8e8;
 $mediumGray: #a3a3a3;
 $darkGray: #3b3b3b;
 $plum: #5c3d49;
-$lightGreen: #84a438;
+$lightGreen: #47ac58;
 $darkGreen: #697a36;
+$whiteGlow: 0px 0px 6px rgb(255, 255, 255);
+
+$backgroundGradient: linear-gradient(to left, #383636 0%, rgb(37, 36, 36) 90%);
+
+$lightGrayGradient: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+$blackGradient: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
 
 // MIXINS
 @mixin flexCenter($direction) {
@@ -22,4 +28,10 @@ $darkGreen: #697a36;
   margin: 5%;
   background-color: white;
   box-shadow: 2px 2px 3px 3px $darkGray;
+}
+
+@mixin opaque-blur{
+  background-color: rgba(245, 238, 238, 0.247);
+  border: 1px solid rgb(95, 94, 94);
+  backdrop-filter: blur(6px);
 }

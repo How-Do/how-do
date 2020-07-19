@@ -1,15 +1,39 @@
 import React, { useState, useEffect } from "react";
 import {Bar} from "react-chartjs-2";
+import axios from 'axios';
 
 function BarChart(props){
-    const [state, setState] = useState({
+    const [postCount, setPostCount] = useState(0)
+    const [commentCount, setCommentCount] = useState(0)
+    const [state, setState] = useState({})
+    
+    useEffect(() => {
+      axios
+        .get(`/howdo/chartpost/${1}`)
+        .then((res) => 
+        // console.log(res.data))
+        setPostCount(+res.data[0].count))
+        .catch((error) => console.log(error))
+      axios
+        .get(`/howdo/chartcomment/${1}`)
+        .then((res) => setCommentCount(+res.data[0].count))
+        .catch((error) => console.log(error))
+    }, [])
+
+    useEffect(() => {
+      setState({
         chartData:
           {
-            labels: ["Casual Learner", "Regular Scholar", "Devoted Savant"],
+            // labels: ["Casual Learner", "Regular Scholar", "Devoted Savant"],
+            labels: ["Total Questions Asked", "Total Answers Given"],
             datasets: [
               {
-                label: "Posts",
-                data: [4, 2, 2, 5, props.count],
+                label: "User Info",
+                data: [
+                  // 4, 2 
+                  postCount,
+                  commentCount
+                ],
                 backgroundColor: [
                   "#617872",
                   "#9eb29a",
@@ -26,50 +50,15 @@ function BarChart(props){
             ],
           },
         count: 0,
-      }) 
-      
-      useEffect(() => {
-        const array = props.plantReducer.plants
-        const newArray = array.reduce(
-            (acc, e) => {
-              if (acc[0].includes(e.room)) {
-                acc[1][acc[0].indexOf(e.room)]++;
-              } else {
-                acc[0].push(e.room);
-                acc[1].push(1);
-              }
-              return acc;
-            },
-            [[], []]
-          )
-          setState({
-            chartData:
-              {
-                labels: newArray[0],
-                datasets: [
-                  {
-                    label: "Plants",
-                    data: newArray[1],
-                    backgroundColor: [
-                      "#617872",
-                      "#9eb29a",
-                      "#b3cfcc",
-                      "#a0cfa5",
-                      "#6a7086",
-                      "#a8a8ad",
+      })
+    }, [postCount, commentCount])
 
-                    ],
-                    boarderWidth: 1,
-                    borderColor: "#ffffff",
-                    hoverBorderWidth: 3,
-                    hoverBorderColor: "#000",
-                  },
-                ],
-              }
-          })
-      },[props.plantReducer.plants]) // this [] is the dependency array that makes this not only componentDidMount but componentWillMount. Re-runs the use effect yayy!
+    console.log(commentCount, "commentCount 1")
+    console.log(postCount, "postCount 1") 
 
 
+      console.log(commentCount, "commentCount 2")
+    console.log(postCount, "postCount 2")
     return(
         <div className="chart-container">
         <div className="chart" 

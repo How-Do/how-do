@@ -7,9 +7,16 @@ var jwt = require("express-jwt");
 var jwks = require("jwks-rsa");
 var request = require("request");
 //Controllers
+<<<<<<< HEAD
 const postCtrl = require("./controllers/postController");
 const commentCtrl = require("./controllers/commentController");
 const cURL = require("cURL");
+=======
+const postCtrl = require('./controllers/postController');
+const commentCtrl = require('./controllers/commentController');
+const chartCtrl = require('./controllers/chartController')
+
+>>>>>>> master
 const app = express();
 
 app.use(express.json());
@@ -31,12 +38,25 @@ app.get("/authorize", function(req, res) {
 //auth endpoints
 
 //app endpoints
+<<<<<<< HEAD
 app.post("/howdo", postCtrl.newHowDo);
 app.get("/howdo/posts", postCtrl.getPosts);
 app.get("/howdo/post/:id", postCtrl.getPost);
 app.get("/howdo/categories", postCtrl.getCategories);
 app.get("/howdo/comments/:id", commentCtrl.getComments);
 app.post("/howdo/comment", commentCtrl.newComment);
+=======
+app.post('/howdo', postCtrl.newHowDo)
+app.get('/howdo/posts', postCtrl.getPosts)
+app.get('/howdo/post/:id', postCtrl.getPost)
+app.get('/howdo/categories', postCtrl.getCategories)
+app.get('/howdo/comments/:id', commentCtrl.getComments)
+app.post('/howdo/comment', commentCtrl.newComment)
+
+//chart endpoints
+app.get('/howdo/chartpost/:id', chartCtrl.getPostsCount)
+app.get('/howdo/chartcomment/:id', chartCtrl.getCommentsCount)
+>>>>>>> master
 
 massive({
   connectionString: CONNECTION_STRING,
