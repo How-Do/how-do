@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Favorites from "./components/Favorites"
 import Post from "./components/Post";
 import Profile from "./components/Profile";
+import Register from "./components/Register";
 
 
 export default props => {
@@ -14,5 +15,6 @@ export default props => {
          <Route path='/post/:id' render={routerProps => <Post {...props} {...routerProps}/>}/>
          <Route path='/profile' component={Profile}/>
          <Route path='/favorites' component={Favorites}/>
+         <Route path='/register' component={Register}/>
      </Switch>
 }
