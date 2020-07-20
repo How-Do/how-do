@@ -6,15 +6,15 @@ import homeimp from '../images/homeimprovement.png'
 import outdoors from '../images/outdoors.png'
 import food from '../images/Food&Drink.png'
 import lifehacks from '../images/lifehacks.png'
-import { useAuth0 } from '@auth0/auth0-react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import {setResults} from "../redux/searchReducer";
 
 function Dashboard(props) {
   const [posts, setPosts] = useState([])
   const [filteredPosts, setFilteredPosts] = useState([])
-  const { isAuthenticated } = useAuth0()
   const state = useSelector(({ searchReducer }) => searchReducer)
-  // const [categories, setCategories] = useState([])
+  const stateTwo = useSelector(({reducer}) => reducer)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     props.socket.on('sent-post', (body) => {
@@ -27,14 +27,15 @@ function Dashboard(props) {
   useEffect(() => {
     axios
       .get('/howdo/posts')
-      .then((res) => setPosts(res.data))
+      .then((res) => {
+        setPosts(res.data)
+        dispatch(setResults(res.data))
+      })
       .catch((error) => console.log(error))
   }, [])
 
   useEffect(() => {
-    if (state.results[0]) {
       setFilteredPosts(state.results)
-    }
   }, [state.results])
 
   let categorySelector = (e) =>
@@ -46,6 +47,7 @@ function Dashboard(props) {
         <Link className='postLink' to={`/post/${post.post_id}`}>
           <div className='post-container'>
             {post.title}
+            <div className='user-info'>{post.username}</div>
             <div>
               {post.description}
               {post.comment ? (
@@ -54,7 +56,6 @@ function Dashboard(props) {
                 <div> Looking for guidance.... </div>
               )}
             </div>
-            <div className='user-info'>{post.full_name}</div>
           </div>
         </Link>
       ))
@@ -62,6 +63,7 @@ function Dashboard(props) {
         <Link className='postLink' to={`/post/${post.post_id}`}>
           <div className='post-container'>
             {post.title}
+            <div className='user-info'>{post.username}</div>
             <div>
               {post.description}
               {post.comment ? (
@@ -70,12 +72,12 @@ function Dashboard(props) {
                 <div> Looking for guidance.... </div>
               )}
             </div>
-            <div className='user-info'>{post.full_name}</div>
           </div>
         </Link>
       ))
 
   //   console.log(postsMap, 'map of the POSTS')
+  // console.log(state.results, 'state.results')
   return (
     <div className='dashboard'>
       <div className='categories'>
@@ -114,7 +116,7 @@ function Dashboard(props) {
         </div>
       </div>
       <div className='column-2'>
-        {!isAuthenticated ? (
+        {!stateTwo.user ? (
           <div className='about'>
             <p>
               Welcome to <span className='title'>howDo</span> – the site where
@@ -134,7 +136,9 @@ function Dashboard(props) {
             <p>Jump in, howDoer. You want to do something new. So DO it!</p>
           </div>
         ) : null}
-        <div className='posts'>{postsMap}</div>
+        <div className='posts'>
+          {state.results.length === 0 ? <p className='no-results'> No results were found! </p> : postsMap}
+        </div>
       </div>
     </div>
   )

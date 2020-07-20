@@ -1,5 +1,5 @@
 insert into users
-(full_name, email, password, is_admin)
+(username, email, password, is_admin)
 values
 ('Aislinn Macintosh', 'ace@ace.com', 'ace', true),
 ('Baili Wilkinson', 'baili@baili.com', 'baili', true),
