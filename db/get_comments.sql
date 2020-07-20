@@ -4,7 +4,7 @@ c.user_id,
 c.created_at, 
 c.comment_pic, 
 c.comment, 
-u.full_name, 
+u.username,
 p.post_id
 from posts p
 left join users u on (p.user_id = u.id)
