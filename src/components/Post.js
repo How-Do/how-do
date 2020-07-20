@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import AddComment from "./AddComment";
 import axios from "axios";
 
@@ -12,11 +12,11 @@ function Post(props) {
   const [category, setCategory] = useState("");
   const [timestamp, setTimestamp] = useState("");
   const [commentsArr, setCommentsArr] = useState([]);
-  const [postId, setPostId] = useState(props.match.params.post_id);
+  const [postId, setPostId] = useState(props.match.params.id);
 
   useEffect(() => {
     console.log("Props:", props);
-    axios.get(`/howdo/post/${postId}`).then((res) => {
+    axios.get(`/howdo/post/${postId}`).then(res => {
       console.log(res.data);
       setUserId(res.data.user_id);
       setTitle(res.data.title);
@@ -30,18 +30,18 @@ function Post(props) {
   useEffect(() => {
     axios
       .get(`/howdo/comments/${postId}`)
-      .then((res) => setCommentsArr(res.data))
-      .catch((error) => console.log(error));
+      .then(res => setCommentsArr(res.data))
+      .catch(error => console.log(error));
   }, []);
 
   useEffect(() => {
-    props.socket.on("sent-comment", (body) => {
+    props.socket.on("sent-comment", body => {
       // console.log(body)
       setCommentsArr(body);
     });
   }, []);
 
-  const commentsMap = commentsArr.map((comment) => (
+  const commentsMap = commentsArr.map(comment => (
     <div>
       {comment.comment}
       <div className="user-info">{comment.full_name}</div>
@@ -55,7 +55,7 @@ function Post(props) {
   ));
 
   return (
-    <div className="Post-Container" style={{ backgroundColor: "lightblue" }}>
+    <div className="Post-Container" style={{backgroundColor: "lightblue"}}>
       <div>
         <p>{category}</p>
         <p>Username</p>
