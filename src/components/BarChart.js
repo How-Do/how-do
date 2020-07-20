@@ -12,11 +12,11 @@ function BarChart(props){
         .get(`/howdo/chartpost/${1}`)
         .then((res) => 
         // console.log(res.data))
-        setPostCount(+res.data[0].count))
+        setPostCount(+res.data.count))
         .catch((error) => console.log(error))
       axios
         .get(`/howdo/chartcomment/${1}`)
-        .then((res) => setCommentCount(+res.data[0].count))
+        .then((res) => setCommentCount(+res.data.count))
         .catch((error) => console.log(error))
     }, [])
 
@@ -30,7 +30,6 @@ function BarChart(props){
               {
                 label: "User Info",
                 data: [
-                  // 4, 2 
                   postCount,
                   commentCount
                 ],
@@ -52,13 +51,6 @@ function BarChart(props){
         count: 0,
       })
     }, [postCount, commentCount])
-
-    console.log(commentCount, "commentCount 1")
-    console.log(postCount, "postCount 1") 
-
-
-      console.log(commentCount, "commentCount 2")
-    console.log(postCount, "postCount 2")
     return(
         <div className="chart-container">
         <div className="chart" 
