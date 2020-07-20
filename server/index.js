@@ -41,6 +41,8 @@ app.post("/howdo/comment", commentCtrl.newComment);
 //chart endpoints
 app.get("/howdo/chartpost/:id", chartCtrl.getPostsCount);
 app.get("/howdo/chartcomment/:id", chartCtrl.getCommentsCount);
+app.get("/howdo/chartdata/:id", chartCtrl.getPostCommentDataPerUser);
+
 
 massive({
   connectionString: CONNECTION_STRING,
