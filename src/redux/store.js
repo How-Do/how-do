@@ -1,6 +1,12 @@
-import reducer from './reducer';
-import {createStore, applyMiddleware} from "redux";
-import promiseMiddleware from "redux-promise-middleware";
+import reducer from './reducer'
+import searchReducer from './searchReducer'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import promiseMiddleware from 'redux-promise-middleware'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
+const combinedReducer = combineReducers({ reducer, searchReducer })
 
-export default createStore(reducer, applyMiddleware(promiseMiddleware))
+export default createStore(
+  combinedReducer,
+  composeWithDevTools(applyMiddleware(promiseMiddleware))
+)
