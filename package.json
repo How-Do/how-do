@@ -38,11 +38,14 @@
     "react-scripts": "3.4.1",
     "react-upvote": "0.0.2",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-promise-middleware": "^6.1.2",
     "socket.io": "^2.3.0",
     "styled-components": "^5.1.1"
   },
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

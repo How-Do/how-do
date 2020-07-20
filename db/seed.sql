@@ -8,10 +8,10 @@ CREATE TYPE "categories" AS ENUM (
 
 CREATE TABLE "users" (
   "id" serial PRIMARY KEY,
-  "full_name" varchar(100),
+  "username" varchar(100),
   "email" varchar(200),
   "password" varchar,
-  "is_admin" boolean,
+  "is_admin" boolean default false,
   "created_at" timestamp DEFAULT now()
 );
 
