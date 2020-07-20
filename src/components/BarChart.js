@@ -12,11 +12,11 @@ function BarChart(props){
         .get(`/howdo/chartpost/${1}`)
         .then((res) => 
         // console.log(res.data))
-        setPostCount(+res.data[0].count))
+        setPostCount(+res.data.count))
         .catch((error) => console.log(error))
       axios
         .get(`/howdo/chartcomment/${1}`)
-        .then((res) => setCommentCount(+res.data[0].count))
+        .then((res) => setCommentCount(+res.data.count))
         .catch((error) => console.log(error))
     }, [])
 
@@ -30,17 +30,16 @@ function BarChart(props){
               {
                 label: "User Info",
                 data: [
-                  // 4, 2 
                   postCount,
                   commentCount
                 ],
                 backgroundColor: [
-                  "#617872",
-                  "#9eb29a",
-                  "#b3cfcc",
-                  "#a0cfa5",
-                  "#6a7086",
-                  "#a8a8ad",
+                  "#637462",
+                  "#6D835C",
+                  "#4E763B",
+                  "#729C65",
+                  "#193C0D",
+                  "#4CBB17",
                 ],
                 boarderWidth: 1,
                 borderColor: "#ffffff",
@@ -52,13 +51,6 @@ function BarChart(props){
         count: 0,
       })
     }, [postCount, commentCount])
-
-    console.log(commentCount, "commentCount 1")
-    console.log(postCount, "postCount 1") 
-
-
-      console.log(commentCount, "commentCount 2")
-    console.log(postCount, "postCount 2")
     return(
         <div className="chart-container">
         <div className="chart" 
@@ -76,15 +68,15 @@ function BarChart(props){
               responsive: true,
               title: {
                 display: true,
-                text: "Plants per Room",
+                text: "Lifetime Questions and Answers",
                 fontSize: 28,
                 position: "top",
-                fontFamily: 'arvo',
+                fontFamily: 'Helvetica',
                 marginBottom: 10,
-                color: 'black',
+                fontColor: '#ffffff',
               },
               legend: {
-                display: true,
+                display: false,
                 position: 'bottom',
               },
               scales: {
@@ -94,6 +86,7 @@ function BarChart(props){
                         maxTicksLimit: 5,
                         autoSkip: true,
                         display: true,
+                        fontColor: 'white',
                         },
                     gridLines: {
                         display: false,
@@ -102,6 +95,7 @@ function BarChart(props){
                 xAxes: [{
                     ticks: {
                         display:true,
+                        fontColor: 'white',
                     },
                     gridLines: {
                         display: false,
