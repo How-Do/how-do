@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 import React from "react";
+// import logo from './../images/raccoon-tail-glow.png'
 import logo from "./../images/big-raccoon-tail.png";
 import "./../styles/styles.css";
-=======
-import React from 'react'
-// import logo from './../images/raccoon-tail-glow.png'
-import logo from './../images/big-raccoon-tail.png'
-import './../styles/styles.css'
->>>>>>> master
 // import { connect } from 'react-redux'
 // import { setUser } from '../../redux/reducer'
 // import { useHistory } from 'react-router-dom'
@@ -24,24 +18,13 @@ const Header = () => {
         <img src={logo} alt="logo" className="logo" />
         <h1>howDo</h1>
       </div>
-<<<<<<< HEAD
       <div className="search-block">
-        <input placeholder="How do I..." className="master-input-box" />
+        <input placeholder="Search" className="master-input-box" />
       </div>
       <div className="links">
         <Link to={"/"}> Dashboard </Link>
-        <Link to={"/post"}> Post </Link>
         <Link to={"/profile"}> Profile </Link>
         <Link to={"/favorites"}> Favorites </Link>
-=======
-      <div className='search-block'>
-        <input placeholder='Search' className='master-input-box' />
-      </div>
-      <div className='links'>
-        <Link to={'/'}> Dashboard </Link>
-        <Link to={'/profile'}> Profile </Link>
-        <Link to={'/favorites'}> Favorites </Link>
->>>>>>> master
       </div>
       <div>
         {isAuthenticated ? (
