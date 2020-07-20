@@ -34,12 +34,12 @@ function BarChart(props){
                   commentCount
                 ],
                 backgroundColor: [
-                  "#617872",
-                  "#9eb29a",
-                  "#b3cfcc",
-                  "#a0cfa5",
-                  "#6a7086",
-                  "#a8a8ad",
+                  "#637462",
+                  "#6D835C",
+                  "#4E763B",
+                  "#729C65",
+                  "#193C0D",
+                  "#4CBB17",
                 ],
                 boarderWidth: 1,
                 borderColor: "#ffffff",
@@ -68,15 +68,15 @@ function BarChart(props){
               responsive: true,
               title: {
                 display: true,
-                text: "Plants per Room",
+                text: "Lifetime Questions and Answers",
                 fontSize: 28,
                 position: "top",
-                fontFamily: 'arvo',
+                fontFamily: 'Helvetica',
                 marginBottom: 10,
-                color: 'black',
+                fontColor: '#ffffff',
               },
               legend: {
-                display: true,
+                display: false,
                 position: 'bottom',
               },
               scales: {
@@ -86,6 +86,7 @@ function BarChart(props){
                         maxTicksLimit: 5,
                         autoSkip: true,
                         display: true,
+                        fontColor: 'white',
                         },
                     gridLines: {
                         display: false,
@@ -94,6 +95,7 @@ function BarChart(props){
                 xAxes: [{
                     ticks: {
                         display:true,
+                        fontColor: 'white',
                     },
                     gridLines: {
                         display: false,

@@ -12,7 +12,7 @@ function Post(props) {
   const [category, setCategory] = useState("");
   const [timestamp, setTimestamp] = useState("");
   const [commentsArr, setCommentsArr] = useState([]);
-  const [postId, setPostId] = useState(props.match.params.post_id);
+  const [postId, setPostId] = useState(props.match.params.id);
 
   useEffect(() => {
     console.log("Props:", props);

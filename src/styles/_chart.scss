@@ -1,0 +1,23 @@
+@import "./variables_&_mixins";
+
+.chart-card-container{
+    @include flexCenter(row);
+    background: lightblue;
+    justify-content: space-around;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        flex-wrap:wrap;
+    .outer-chart-container{
+        @include opaque-blur;
+        background: rgba(0, 0, 0, 0.651);
+        margin-top:100px;
+        border-radius: 5px;
+    }
+}
+// .chart-container{
+//     color:white;
+        
+//     .chart{
+//         color:#ffffff;
+//     }
+
+// }

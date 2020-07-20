@@ -13,4 +13,13 @@ module.exports = {
             .then(([commentsCount]) => res.status(200).send(commentsCount))
             .catch(error => res.status(500).send(error))
     },
+    getPostCommentDataPerUser: (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        db.chart_data(id)
+            .then((results) => res.status(200).send(results))
+            .catch(error => res.status(500).send(error))
+    },
+
+
 }

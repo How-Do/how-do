@@ -420,6 +420,38 @@
 /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
 /*end media query*/
 /*End desktop only styles*/
+.chart-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: lightblue;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.chart-card-container .outer-chart-container {
+  background-color: rgba(245, 238, 238, 0.247);
+  border: 1px solid #5f5e5e;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.651);
+  margin-top: 100px;
+  border-radius: 5px;
+}
+
 .dashboard {
   display: -webkit-box;
   display: -ms-flexbox;
