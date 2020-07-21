@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from "react";
 import {Bar} from "react-chartjs-2";
 import axios from 'axios';
+import { useSelector } from 'react-redux'
 
 function BarChart(props){
     const [postCount, setPostCount] = useState(0)
     const [commentCount, setCommentCount] = useState(0)
     const [state, setState] = useState({})
     
+    const userId = useSelector(
+      (reduxState) => reduxState.reducer.user ? reduxState.reducer.user.user_id : null
+    )
+
     useEffect(() => {
       axios
-        .get(`/howdo/chartpost/${1}`)
+        .get(`/howdo/chartpost/${userId}`)
         .then((res) => 
         // console.log(res.data))
         setPostCount(+res.data.count))
         .catch((error) => console.log(error))
       axios
-        .get(`/howdo/chartcomment/${1}`)
+        .get(`/howdo/chartcomment/${userId}`)
         .then((res) => setCommentCount(+res.data.count))
         .catch((error) => console.log(error))
     }, [])

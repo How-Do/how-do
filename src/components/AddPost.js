@@ -1,19 +1,23 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./../styles/styles.css";
 import { HamburgerArrow } from "react-animated-burgers";
 import { Transition } from "react-transition-group";
+import { useSelector } from 'react-redux'
 
-//This component still needs to be updated to be able to pull the user from session once login is working
 
 function AddPost({ socket }) {
-  const [userId, setUserId] = useState(1); //<-- This needs to be dynamic
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [category, setCategory] = useState("");
-
   const [isActive, setIsActive] = useState(false);
   const toggleButton = useCallback(() => setIsActive((pre) => !pre));
+  
+  
+  const userId = useSelector(
+    (reduxState) => reduxState.reducer.user ? reduxState.reducer.user.user_id : null
+  )
 
   function addPost(e) {
     e.preventDefault();
@@ -30,6 +34,8 @@ function AddPost({ socket }) {
     setCategory("");
     document.getElementById('howDoForm').reset()
   }
+  //console.log('USERID', userId);
+  console.log('USER PROPS 2', userId);
 
   return (
     <div className="AddPost-green-container">
