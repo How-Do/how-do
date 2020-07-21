@@ -4,6 +4,8 @@
 @import './addpost';
 @import './chart';
 @import './dashboard';
+@import './register';
+@import './login';
 
 * {
   margin: 0;
@@ -31,7 +33,7 @@
 }
 
 .master-button {
-  border: 1px solid rgb(95, 94, 94); 
+  border: 1px solid rgb(95, 94, 94);
   background: rgba(0, 0, 0, 0.123);
   padding: 7px;
   margin: 5px;
@@ -44,12 +46,12 @@
 .master-button:hover {
   background-color: white;
   box-shadow: $whiteGlow;
-  color:black;
+  color: black;
 }
 
 h1 {
   color: $lightGreen;
-  text-shadow: 1px 1px black;
+  text-shadow: 2px 2px black;
 }
 
 h6 {
