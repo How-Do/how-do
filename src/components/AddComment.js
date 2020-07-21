@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux'
 
 function AddComment(props) {
   const [comment, setComment] = useState("");
-  const [userId, setUserId] = useState(1); //<-- This needs to be dynamic
   const [commentPic, setCommentPic] = useState("");
   const [postId, setPostId] = useState(props.id);
 
   console.log(props);
   console.log(props.socket);
+
+  const userId = useSelector(
+    (reduxState) => reduxState.reducer.user ? reduxState.reducer.user.user_id : null
+  )
 
   function addComment(e) {
     e.preventDefault();
