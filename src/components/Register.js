@@ -7,6 +7,7 @@ import {useHistory} from 'react-router-dom'
 
 function Register() {
     const [username, setUsername] = useState('');
+    const [profilePic, setProfilePic] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function Register() {
 
     const register = (e) => {
         e.preventDefault()
-        axios.post('/api/register', {username, password, email})
+        axios.post('/api/register', {username, profilePic, password, email})
             .then((res) => {
                 dispatch(setUser(res.data))
                 history.push(`/profile`)
@@ -34,6 +35,12 @@ function Register() {
                            name='username'
                            value={username}
                            onChange={(e) => setUsername(e.target.value)}/>
+                    <br/>
+                    <p>Profile Picture: </p>
+                    <input placeholder='Profile Pic'
+                           name='profilePic'
+                           value={profilePic}
+                           onChange={(e) => setProfilePic(e.target.value)}/>
                     <br/>
                     <p>Password:</p>
                     <input  type='password'

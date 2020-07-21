@@ -31,7 +31,7 @@ function Login() {
                 onChange={(e)=> setPassword(e.target.value)}/>
             <br/>
             <button onClick={login}>Login</button>
-            <Link to={'/Auth'} className='auth-link'>Register</Link>
+            <Link to={'/Register'} className='register-link'>Register</Link>
 
         </div>
     );

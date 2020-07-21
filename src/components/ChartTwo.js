@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {Bar} from "react-chartjs-2";
 import axios from 'axios';
+import { useSelector } from 'react-redux'
 
 function ChartTwo(props){
     const [resData, setResData] = useState([])
@@ -9,6 +10,11 @@ function ChartTwo(props){
     const [lifeHacks, setLifeHacks] = useState(0)
     const [foodAndDrink, setFoodAndDrink] = useState(0)
     const [outdoors, setOutdoors] = useState(0)
+
+    const userId = useSelector(
+      (reduxState) => reduxState.reducer.user ? reduxState.reducer.user.user_id : null
+    )
+
     const [state, setState] = useState({
         chartData:
           {
@@ -98,7 +104,7 @@ function ChartTwo(props){
       
       useEffect(() => {
         axios
-          .get(`/howdo/chartdata/${2}`)
+          .get(`/howdo/chartdata/${userId}`)
           .then((res) => 
         //   console.log(res.data))
            setResData(res.data))
