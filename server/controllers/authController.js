@@ -35,7 +35,8 @@ module.exports = {
                 req.session.user = {
                     user_id: user[0].id,
                     username: user[0].username,
-                    is_admin: user[0].is_admin
+                    is_admin: user[0].is_admin,
+                    profile_pic: user[0].profile_pic
                 }
                 res.status(200).send(req.session.user)
             } else {

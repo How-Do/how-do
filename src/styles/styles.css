@@ -431,12 +431,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: lightblue;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   font-family: 'Helvetica', 'Arial', sans-serif;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding-bottom: 50px;
 }
 
 .chart-card-container .outer-chart-container {
@@ -445,8 +445,9 @@
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.651);
-  margin-top: 100px;
+  margin-top: 50px;
   border-radius: 5px;
+  margin: 10px;
 }
 
 .dashboard {
@@ -744,6 +745,79 @@
   margin-right: 5px;
   padding-top: 3%;
   padding-bottom: 3%;
+}
+
+.profile-container {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(252, 252, 252, 0.253)), to(rgba(0, 0, 0, 0.15))), radial-gradient(at top center, rgba(175, 175, 175, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #4d4d4d;
+  background: linear-gradient(to bottom, rgba(252, 252, 252, 0.253) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(175, 175, 175, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #4d4d4d;
+  background-size: cover;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.column-1 {
+  width: 200px;
+}
+
+.column-1 .profile-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.column-1 .profile-info-container .profile-pic {
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10px;
+}
+
+.column-1 .profile-info-container .user-info-text {
+  color: white;
+}
+
+.column-2 {
+  padding-top: 300px;
+}
+
+.column-2 .welcome-container {
+  background: #47ac58;
+  height: 30px;
+  width: 80vw;
+  border: 1px solid #5f5e5e;
+  border-radius: 5px;
+}
+
+.column-2 .welcome-container .username {
+  font-size: 20pt;
+  color: white;
+  font-family: 'helvetica';
 }
 
 * {
