@@ -15,7 +15,6 @@ module.exports = {
         // console.log(typeof search, 'search', search)
 
         if (search) {
-            const check = await db.search_posts(search)
             db.search_posts(search)
                 .then(posts => res.status(200).send(posts))
                 .catch(error => res.status(500).send(error))

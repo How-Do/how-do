@@ -4,11 +4,11 @@ const express = require("express"),
   massive = require("massive");
 const {SESSION_SECRET, SERVER_PORT, CONNECTION_STRING} = process.env;
 //Controllers
-const authCtrl = require("./controllers/authController")
+const authCtrl = require("./controllers/authController");
 const postCtrl = require("./controllers/postController");
 const commentCtrl = require("./controllers/commentController");
 const chartCtrl = require("./controllers/chartController");
-
+const voteCtrl = require("./controllers/voteController");
 const app = express();
 
 app.use(express.json());
@@ -22,13 +22,10 @@ app.use(
 );
 app.use(express.static(`${__dirname}/..build`));
 
-
-//auth endpoints
-app.post('/api/register', authCtrl.register)
-app.post('/api/login', authCtrl.login)
-app.delete('/api/logout', authCtrl.logout)
-app.get('/api/setUser', authCtrl.setUser)
-
+app.post("/api/register", authCtrl.register);
+app.post("/api/login", authCtrl.login);
+app.delete("/api/logout", authCtrl.logout);
+app.get("/api/setUser", authCtrl.setUser);
 
 //app endpoints
 app.post("/howdo", postCtrl.newHowDo);
@@ -37,12 +34,16 @@ app.get("/howdo/post/:id", postCtrl.getPost);
 app.get("/howdo/categories", postCtrl.getCategories);
 app.get("/howdo/comments/:id", commentCtrl.getComments);
 app.post("/howdo/comment", commentCtrl.newComment);
+app.get("/howdo/commentcount/:post_id", commentCtrl.getCommentCount)
 
 //chart endpoints
 app.get("/howdo/chartpost/:id", chartCtrl.getPostsCount);
 app.get("/howdo/chartcomment/:id", chartCtrl.getCommentsCount);
 app.get("/howdo/chartdata/:id", chartCtrl.getPostCommentDataPerUser);
 
+//Vote endoints
+app.post("/howdo/upvote/:comment_id", voteCtrl.upvoteComment);
+app.post("/howdo/downvote/:comment_id", voteCtrl.downvoteComment);
 
 massive({
   connectionString: CONNECTION_STRING,
