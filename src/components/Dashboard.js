@@ -53,11 +53,11 @@ function Dashboard(props) {
                             <img src={post.post_pic} className='post-pic' alt='post'/>
                             <br/>
                             {post.description}
-                            {/*{post.comment ? (*/}
-                            {/*  <div className='if-comments'> HowDoers have spoken! </div>*/}
-                            {/*) : (*/}
-                            {/*  <div className='if-comments'> Looking for more input.... </div>*/}
-                            {/*)}*/}
+                            {post.comment_count ? (
+                              <div className='if-comments'> {post.comment_count} HowDoers have spoken! </div>
+                            ) : (
+                              <div className='if-comments'> Looking for more input.... </div>
+                            )}
                         </div>
                     </div>
                 </Link>
