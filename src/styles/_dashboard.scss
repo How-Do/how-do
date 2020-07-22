@@ -1,113 +1,256 @@
+/* ====================== Mobile styles ========================== */
 .dashboard {
-  @include flexCenter(row);
+  @include flexCenter(column);
   padding-top: 12vh;
-  align-items: flex-start;
-  //background: $backgroundGradient;
-  //height: 90%;
+  //align-items: flex-start;
   width: 100%;
 
-  background-image:url("https://cdn.pixabay.com/photo/2017/06/19/23/10/raccoon-2421188_960_720.jpg");
-   background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
+  background-image: url("https://cdn.pixabay.com/photo/2017/06/19/23/10/raccoon-2421188_960_720.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-   min-width: 100vw;
+  min-width: 100vw;
 
 
-
-  // .categories {
-  //   width: 50%;
-  //   position: sticky;
-  //   top: -10vh;
-  //   .each-category {
-  //     @include flexCenter(column);
-  //     background: rgba(0, 0, 0, 0.651);
-  //     border: 1px solid rgb(95, 94, 94);
-  //     position: sticky;
-  //     margin-top: 10px;
-  //     margin-left: 10px;
-  //     padding-top: 10px;
-  //     padding-bottom: 10px;
-  //     img {
-  //       width: 80%;
-  //       margin-top: 10px;
-  //       margin-bottom: 10px;
-  //       box-shadow: 0px 12px 18px -6px black;
-  //     }
-  //     img:hover{
-  //       box-shadow: $whiteGlow;
-  //     }
-  //   }
-  // }
   .categories {
-    width: 30vw;
+    width: 95%;
     top: 12vh;
-    padding: 2vw;
-    @include flexCenter(column);
+    //padding: 2vw;
+    @include flexCenter(row);
     background: rgba(0, 0, 0, 0.651);
     border: 1px solid rgb(95, 94, 94);
     position: sticky;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 5px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    flex-wrap: wrap;
+    //padding-bottom: 10px;
+
     img {
-      width: 80%;
-      min-width: 150px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      width: 100px;
+      height: 62px;
+      object-fit: cover;
+      margin: 5px;
+      //margin-top: 10px;
+      //margin-bottom: 10px;
       box-shadow: 0px 12px 18px -6px black;
     }
-    img:hover{
+
+    img:hover {
       box-shadow: $whiteGlow;
-    .each-category {
+
+      .each-category {
 
       }
     }
   }
+
   .column-2 {
     @include flexCenter(column);
+
     .about {
       background: rgba(0, 0, 0, 0.651);
       border: 1px solid rgb(95, 94, 94);
       color: $lightGray;
       margin-top: 10px;
       padding: 10px;
-      width: 70%;
+      width: 80%;
       font-size: x-large;
+
       .title {
         color: $lightGreen;
         text-shadow: 2px 2px black;
       }
+
       p {
         margin: 20px;
       }
     }
+
     .posts {
       margin-top: 40px;
-    
+
     }
   }
-  .postLink{
+
+  .postLink {
     @include flexCenter(column);
-  .post-container{
-    background-color: rgba(51, 51, 51, 0.973);
-  border: 1px solid rgb(95, 94, 94);
-  padding:10px;
-  margin-bottom:10px;
-  width: 70%;
-    .user-info {
-      font-size: 10px;
-      text-align: left;
+
+    .post-container {
+      background-color: rgba(51, 51, 51, 0.973);
+      border: 1px solid rgb(95, 94, 94);
       padding: 10px;
-    }
-    .post-pic {
-      width: 350px;
-    }
-    .if-comments {
-      font-size: 10px;
-      padding: 10px;
+      margin-bottom: 10px;
+      width: 80%;
+
+      .user-info {
+        font-size: 10px;
+        text-align: left;
+        padding: 10px;
+      }
+
+      .post-pic {
+        width: 250px;
+      }
+
+      .if-comments {
+        font-size: 10px;
+        padding: 10px;
+      }
     }
   }
 }
+
+/*End mobile and up styles*/
+/* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
+@media only screen and (min-width: 768px) {
+
 }
+
+/*end media query*/
+/*End tablet and up styles*/
+
+/* ====================== Tablet Landscape and Up (Overrides Mobile and Tablet Portrait Styles) ========================== */
+
+
+/*end media query*/
+/*End landscape tablet and up styles*/
+
+/* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
+@media only screen and (min-width: 1200px) {
+  .dashboard {
+    @include flexCenter(row);
+    padding-top: 12vh;
+    align-items: flex-start;
+    //background: $backgroundGradient;
+    //height: 90%;
+    width: 100%;
+
+    background-image: url("https://cdn.pixabay.com/photo/2017/06/19/23/10/raccoon-2421188_960_720.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-width: 100vw;
+
+
+    // .categories {
+    //   width: 50%;
+    //   position: sticky;
+    //   top: -10vh;
+    //   .each-category {
+    //     @include flexCenter(column);
+    //     background: rgba(0, 0, 0, 0.651);
+    //     border: 1px solid rgb(95, 94, 94);
+    //     position: sticky;
+    //     margin-top: 10px;
+    //     margin-left: 10px;
+    //     padding-top: 10px;
+    //     padding-bottom: 10px;
+    //     img {
+    //       width: 80%;
+    //       margin-top: 10px;
+    //       margin-bottom: 10px;
+    //       box-shadow: 0px 12px 18px -6px black;
+    //     }
+    //     img:hover{
+    //       box-shadow: $whiteGlow;
+    //     }
+    //   }
+    // }
+    .categories {
+      width: 22vw;
+      //height: 98vh;
+      //top: 12vh;
+      padding: 2vw;
+      @include flexCenter(column);
+      background: rgba(0, 0, 0, 0.651);
+      border: 1px solid rgb(95, 94, 94);
+      position: sticky;
+      margin-top: 10px;
+      margin-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      img {
+        width: 80%;
+        height: 80%;
+        min-width: 250px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0px 12px 18px -6px black;
+      }
+
+      img:hover {
+        box-shadow: $whiteGlow;
+
+        .each-category {
+
+        }
+      }
+    }
+
+    .column-2 {
+      @include flexCenter(column);
+
+      .about {
+        background: rgba(0, 0, 0, 0.651);
+        border: 1px solid rgb(95, 94, 94);
+        color: $lightGray;
+        margin-top: 10px;
+        padding: 10px;
+        width: 70%;
+        font-size: x-large;
+
+        .title {
+          color: $lightGreen;
+          text-shadow: 2px 2px black;
+        }
+
+        p {
+          margin: 20px;
+        }
+      }
+
+      .posts {
+        margin-top: 40px;
+
+      }
+    }
+
+    .postLink {
+      @include flexCenter(column);
+
+      .post-container {
+        background-color: rgba(51, 51, 51, 0.973);
+        border: 1px solid rgb(95, 94, 94);
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 70%;
+
+        .user-info {
+          font-size: 10px;
+          text-align: left;
+          padding: 10px;
+        }
+
+        .post-pic {
+          width: 550px;
+          padding: 10px;
+        }
+
+        .if-comments {
+          font-size: 10px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+  /*end media query*/
+  /*End desktop only styles*/
+
+
+
+

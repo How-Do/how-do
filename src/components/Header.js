@@ -3,8 +3,8 @@ import React, {useState} from 'react'
 import logo from './../images/big-raccoon-tail.png'
 import './../styles/styles.css'
 // import { connect } from 'react-redux'
-import { setUser } from '../redux/reducer'
-import { useHistory } from 'react-router-dom'
+import {setUser} from '../redux/reducer'
+import {useHistory} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
@@ -27,7 +27,17 @@ const Header = () => {
             .catch((error) => console.log(error))
     }
 
-    function logout(){
+    const showMenu = () => {
+        var x = document.getElementById('mobile-links');
+        console.log(x, 'what is x')
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+
+    function logout() {
         axios.delete('/api/logout')
             .then(res => {
                 dispatch(setUser(null));
@@ -39,39 +49,71 @@ const Header = () => {
 
     return (
         <div className='header-bar'>
-            <div className='logo-block'>
-                <img src={logo} alt='logo' className='logo'/>
-                <h1>howDo</h1>
+            <div className='desktop-header'>
+                <div className='logo-block'>
+                    <img src={logo} alt='logo' className='logo'/>
+                    <h1>howDo</h1>
+                </div>
+                <div className='search-block'>
+                    <input
+                        placeholder='Search'
+                        className='master-input-box'
+                        onChange={(e) => searchPosts(e.target.value)}
+                    />
+                </div>
+                <div className='links'>
+                    <Link to={'/'}> Dashboard </Link>
+                    <Link to={'/profile'}> Profile </Link>
+                    <Link to={'/favorites'}> Favorites </Link>
+                </div>
+                <div>
+                    {stateTwo.user ? (
+                        <div className='logout-div'>
+                            <button className='master-button' onClick={() => logout()}>
+                                Logout
+                            </button>
+                        </div>
+                    ) : (
+                        <div className='login-div'>
+                            <Login/>
+                        </div>
+                    )}
+                </div>
             </div>
-            <div className='search-block'>
-                <input
-                    placeholder='Search'
-                    className='master-input-box'
-                    onChange={(e) => searchPosts(e.target.value)}
-                />
-            </div>
-            <div className='links'>
-                <Link to={'/'}> Dashboard </Link>
-                <Link to={'/profile'}> Profile </Link>
-                <Link to={'/favorites'}> Favorites </Link>
-            </div>
-            <div>
-                {stateTwo.user ? (
+            <div className='mobile-header'>
+                <div className='mobile-logo-block'>
+                    <a onClick={showMenu}>
+                        <img src={logo} alt='logo' className='logo'/>
+                    </a>
+                    <h1>howDo</h1>
+                </div>
+                <div className='mobile-search-block'>
+                    <input
+                        placeholder='Search'
+                        className='master-input-box'
+                        onChange={(e) => searchPosts(e.target.value)}
+                    />
+                </div>
+                <div id='mobile-links'>
+                    <div className='mobile-links-container'>
+                        <Link to={'/'}> Dashboard </Link>
+                        <Link to={'/profile'}> Profile </Link>
+                        <Link to={'/favorites'}> Favorites </Link>
+                    </div>
                     <div>
-                        <button className='master-button' onClick={() => logout()}>
-                            Logout
-                        </button>
+                        {stateTwo.user ? (
+                            <div className='logout-div'>
+                                <button className='master-button' onClick={() => logout()}>
+                                    Logout
+                                </button>
+                            </div>
+                        ) : (
+                            <div className='mobile-login-div'>
+                                <Login/>
+                            </div>
+                        )}
                     </div>
-                ) : (
-                    <div className='login-div'>
-                        <Login/>
-                        {/*<button*/}
-                        {/*    onClick={() => loginWithRedirect()}*/}
-                        {/*    className='master-button'>*/}
-                        {/*    Login*/}
-                        {/*</button>*/}
-                    </div>
-                )}
+                </div>
             </div>
         </div>
     )
