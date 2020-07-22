@@ -34,6 +34,7 @@ app.get("/howdo/post/:id", postCtrl.getPost);
 app.get("/howdo/categories", postCtrl.getCategories);
 app.get("/howdo/comments/:id", commentCtrl.getComments);
 app.post("/howdo/comment", commentCtrl.newComment);
+app.get("/howdo/commentcount/:post_id", commentCtrl.getCommentCount)
 
 //chart endpoints
 app.get("/howdo/chartpost/:id", chartCtrl.getPostsCount);

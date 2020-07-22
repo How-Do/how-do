@@ -19,6 +19,14 @@ module.exports = {
             .then(comments => res.status(200).send(comments))
             .catch(error => res.status(500).send(error))
     },
+    getCommentCount: (req, res ) => {
+        const db = req.app.get('db')
+        const {post_id} = req.params
+
+        db.get_comment_count(post_id)
+            .then(commentCount => res.status(200).send(commentCount))
+            .catch(error => res.status(500).send(error))
+    },
     // getPost: (req, res) => {
     //     const db = req.app.get('db')
     //     const {id} = req.params
