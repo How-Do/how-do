@@ -28,7 +28,7 @@ module.exports = {
                 await db.vote_get_downvote_count(comment.comment_id)
                 .then(downCount => comment.downvote = +downCount[0].count)
                     .catch(error => res.status(500).send(error))
-                    console.log(comment);
+                    //console.log(comment);
                     return comment
             }));
 

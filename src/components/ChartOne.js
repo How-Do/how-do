@@ -3,7 +3,7 @@ import {Bar} from "react-chartjs-2";
 import axios from 'axios';
 import { useSelector } from 'react-redux'
 
-function BarChart(props){
+function ChartOne(props){
     const [postCount, setPostCount] = useState(0)
     const [commentCount, setCommentCount] = useState(0)
     const [state, setState] = useState({})
@@ -39,10 +39,10 @@ function BarChart(props){
                   commentCount
                 ],
                 backgroundColor: [
-                  "#637462",
-                  "#6D835C",
-                  "#4E763B",
-                  "#729C65",
+                  // "#637462",
+                  // "#6D835C",
+                  // "#4E763B",
+                  // "#729C65",
                   "#193C0D",
                   "#4CBB17",
                 ],
@@ -115,4 +115,4 @@ function BarChart(props){
     )
 }
 
-export default BarChart
+export default ChartOne;
