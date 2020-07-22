@@ -1,3 +1,12 @@
+/* ====================== Mobile styles ========================== */
+/*End mobile and up styles*/
+/* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
+/*end media query*/
+/*End tablet and up styles*/
+/* ====================== Tablet Landscape and Up (Overrides Mobile and Tablet Portrait Styles) ========================== */
+/*end media query*/
+/*End landscape tablet and up styles*/
+/* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
 .header-bar {
   display: flex;
   flex-direction: row;
@@ -67,6 +76,8 @@
   font-size: x-large;
 }
 
+/*end media query*/
+/*End desktop only styles*/
 .Post-Container {
   background: lightblue;
 }
@@ -280,21 +291,31 @@
 /*End desktop only styles*/
 .chart-card-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background: lightblue;
-  justify-content: space-around;
-  font-family: "Helvetica", "Arial", sans-serif;
-  flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-bottom: 50px;
 }
 .chart-card-container .outer-chart-container {
   background-color: rgba(245, 238, 238, 0.247);
   border: 1px solid #5f5e5e;
   backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.651);
-  margin-top: 100px;
+  margin-top: 50px;
   border-radius: 5px;
+  margin: 10px;
 }
 
 .dashboard {
@@ -304,6 +325,7 @@
   align-items: center;
   padding-top: 12vh;
   align-items: flex-start;
+  width: 100%;
   background-image: url("https://cdn.pixabay.com/photo/2017/06/19/23/10/raccoon-2421188_960_720.jpg");
   background-size: cover;
   background-position: center;
@@ -312,11 +334,9 @@
   min-width: 100vw;
 }
 .dashboard .categories {
-  width: 27%;
-  position: sticky;
+  width: 30vw;
   top: 12vh;
-}
-.dashboard .categories .each-category {
+  padding: 2vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -325,27 +345,33 @@
   border: 1px solid #5f5e5e;
   position: sticky;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.dashboard .categories .each-category img {
+.dashboard .categories img {
   width: 80%;
+  min-width: 150px;
   margin-top: 10px;
   margin-bottom: 10px;
   box-shadow: 0px 12px 18px -6px black;
 }
-.dashboard .categories .each-category img:hover {
+.dashboard .categories img:hover {
   box-shadow: 0px 0px 6px white;
+}
+.dashboard .column-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .dashboard .column-2 .about {
   background: rgba(0, 0, 0, 0.651);
   border: 1px solid #5f5e5e;
   color: #e9e8e8;
   margin-top: 10px;
-  margin-left: 7%;
   padding: 10px;
-  width: 85%;
+  width: 70%;
   font-size: x-large;
 }
 .dashboard .column-2 .about .title {
@@ -369,7 +395,19 @@
   border: 1px solid #5f5e5e;
   padding: 10px;
   margin-bottom: 10px;
-  width: 50vw;
+  width: 70%;
+}
+.dashboard .postLink .post-container .user-info {
+  font-size: 10px;
+  text-align: left;
+  padding: 10px;
+}
+.dashboard .postLink .post-container .post-pic {
+  width: 350px;
+}
+.dashboard .postLink .post-container .if-comments {
+  font-size: 10px;
+  padding: 10px;
 }
 
 .register {
@@ -472,6 +510,79 @@
   margin-right: 5px;
   padding-top: 3%;
   padding-bottom: 3%;
+}
+
+.profile-container {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(252, 252, 252, 0.253)), to(rgba(0, 0, 0, 0.15))), radial-gradient(at top center, rgba(175, 175, 175, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #4d4d4d;
+  background: linear-gradient(to bottom, rgba(252, 252, 252, 0.253) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(175, 175, 175, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #4d4d4d;
+  background-size: cover;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.column-1 {
+  width: 200px;
+}
+
+.column-1 .profile-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.column-1 .profile-info-container .profile-pic {
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10px;
+}
+
+.column-1 .profile-info-container .user-info-text {
+  color: white;
+}
+
+.column-2 {
+  padding-top: 300px;
+}
+
+.column-2 .welcome-container {
+  background: #47ac58;
+  height: 30px;
+  width: 80vw;
+  border: 1px solid #5f5e5e;
+  border-radius: 5px;
+}
+
+.column-2 .welcome-container .username {
+  font-size: 20pt;
+  color: white;
+  font-family: 'helvetica';
 }
 
 * {

@@ -12,7 +12,8 @@ CREATE TABLE "users" (
   "email" varchar(200),
   "password" varchar,
   "is_admin" boolean default false,
-  "created_at" timestamp DEFAULT now()
+  "created_at" timestamp DEFAULT now(),
+  "profile_pic" text
 );
 
 CREATE TABLE "comments" (
@@ -41,6 +42,15 @@ CREATE TABLE "category" (
   "category_name" categories
 );
 
+CREATE TABLE "votes" (
+  "post_vote_id" serial PRIMARY KEY,
+  "user_id" INT REFERENCES "users" ("id"),
+  "comment_id" INT REFERENCES "comments" ("comment_id"),
+  "upvote" int default 0,
+  "downvote" int default 0
+);
+
+
 ALTER TABLE "comments" ADD FOREIGN KEY ("post_id") REFERENCES "posts" ("post_id");
 
 ALTER TABLE "comments" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
@@ -48,3 +58,5 @@ ALTER TABLE "comments" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 ALTER TABLE "posts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
 ALTER TABLE "posts" ADD FOREIGN KEY ("category") REFERENCES "category" ("id");
+
+ALTER TABLE "users" ADD "profile_pic" text;

@@ -1,0 +1,49 @@
+@import "./variables_&_mixins";
+
+.profile-container {
+  background: linear-gradient(
+      to bottom,
+      rgba(252, 252, 252, 0.253) 0%,
+      rgba(0, 0, 0, 0.15) 100%),
+    radial-gradient(
+        at top center,
+        rgba(175, 175, 175, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%)
+      #4d4d4d;
+  background-size: cover;
+  height: 100vh;
+  @include flexCenter(row);
+}
+.column-1 {
+    width: 200px;
+  .profile-info-container {
+      display:flex;
+      justify-content: center;
+      @include flexCenter(column);
+    .profile-pic {
+      height: 100px;
+      width: 100px;
+      background-position: center;
+      object-fit: cover;
+      margin:10px;
+    }
+    .user-info-text{
+        color:white;
+    }
+  }
+}
+.column-2 {
+    padding-top: 300px;
+  .welcome-container {
+      background: $lightGreen;
+      height: 30px;
+      width: 80vw;
+      border: 1px solid rgb(95, 94, 94);
+      border-radius: 5px;
+    .username {
+      font-size: 20pt;
+      color: white;
+      font-family: 'helvetica';
+    }
+  }
+}
