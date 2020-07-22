@@ -84,3 +84,8 @@ values
 (3, 48, 'Hang your food pack from a tree limb that is at least 10 feet off the ground. Don''t leave food in your tent. Leave your tent flaps open so that a bear can walk in and check for food without resorting to force. Where bears are frequent, secure your food in government-approved “bear-proof” containers.', 'https://chowhound1.cbsistatic.com/thumbnail/800/0/chowhound1.cbsistatic.com/blog-media/2018/08/how-to-store-and-dispose-of-food-while-camping-to-deter-animals-chowhound-670x446.jpg'),
 (4, 49, 'Place the knife tip into the fish''s vent and move the blade up along the belly, cutting to the head. Keep the knife placement shallow so you don''t puncture the entrails. Spread open the body, remove the intestines, and scrape the backbone. Cut the head off then rinse the fish in some clean water.', 'https://www.thereadystore.com/wordpress/wp-content/uploads/2016/03/clean-a-fish-7.jpg'),
 (5, 50, 'Look up trails in apps and websites such as Maps 3D Pro, ViewRanger, AllTrails, or Mountain Hub.', 'https://visitmontgomery.com/wp-content/uploads/2018/05/Hiking-1.jpg');
+
+
+update users
+set "profile_pic" = 'https://cdn.shopify.com/s/files/1/2830/0642/products/craft-stamp-owl-silhouette-stamp-718949220400.jpg?v=1578746372'
+where id = 6;
