@@ -23,7 +23,7 @@ CREATE TABLE "comments" (
   "comment" text,
   "created_at" timestamp DEFAULT now(),
   "comment_pic" text,
-   "upvote" int default 0,
+  "upvote" int default 0,
   "downvote" int default 0
 );
 
