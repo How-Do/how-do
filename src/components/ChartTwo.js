@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Bar} from "react-chartjs-2";
+import {Pie} from "react-chartjs-2";
 import axios from 'axios';
 import { useSelector } from 'react-redux'
 
@@ -85,15 +85,14 @@ function ChartTwo(props){
                     label: '',
                     data: newArray[1],
                     backgroundColor: [
-                        "#637462",
-                        "#6D835C",
-                        "#4E763B",
-                        "#729C65",
-                        "#193C0D",
-                        "#4CBB17",
+                        "#03254c",
+                        "#1167b1",
+                        "#2a9df4",
+                        "#59bfff",
+                        "#d0efff",
                     ],
                     boarderWidth: 1,
-                    borderColor: "#ffffff",
+                    borderColor: false,
                     hoverBorderWidth: 3,
                     hoverBorderColor: "#000",
                   },
@@ -123,7 +122,7 @@ function ChartTwo(props){
             position: 'center',
         }}
         >
-        <Bar
+        <Pie
             data={state.chartData}
             options={{
               maintainAspectRatio: false,
@@ -138,8 +137,9 @@ function ChartTwo(props){
                 fontColor: 'white',
               },
               legend: {
-                display: false,
+                display: true,
                 position: 'bottom',
+                fontColor: 'white'
               },
               scales: {
                 yAxes: [{
@@ -147,7 +147,7 @@ function ChartTwo(props){
                         beginAtZero: true,
                         maxTicksLimit: 5,
                         autoSkip: true,
-                        display: true,
+                        display: false,
                         fontColor: 'white',
                         },
                     gridLines: {
@@ -156,7 +156,7 @@ function ChartTwo(props){
                     }],
                 xAxes: [{
                     ticks: {
-                        display:true,
+                        display:false,
                         fontColor: 'white',
                     },
                     gridLines: {
