@@ -1,5 +1,5 @@
 import React from 'react'
-// import Contact from './Contact'
+import Contact from './Contact'
 
 function About() {
   return (
@@ -77,6 +77,7 @@ function About() {
             misleading, inaccurate, or ill-advised.
           </p>
         </div>
+        <Contact />
       </div>
     </div>
   )

@@ -9,6 +9,9 @@ const postCtrl = require("./controllers/postController");
 const commentCtrl = require("./controllers/commentController");
 const chartCtrl = require("./controllers/chartController");
 const voteCtrl = require("./controllers/voteController");
+const contactCtrl = require('./controllers/contactController')
+
+
 const app = express();
 
 app.use(express.json());
@@ -41,9 +44,12 @@ app.get("/howdo/chartpost/:id", chartCtrl.getPostsCount);
 app.get("/howdo/chartcomment/:id", chartCtrl.getCommentsCount);
 app.get("/howdo/chartdata/:id", chartCtrl.getPostCommentDataPerUser);
 
-//Vote endoints
+//Vote endpoints
 app.post("/howdo/upvote/:comment_id", voteCtrl.upvoteComment);
 app.post("/howdo/downvote/:comment_id", voteCtrl.downvoteComment);
+
+//Nodemailer endpoints
+app.post("/howdo/contact", contactCtrl.sendEmail);
 
 massive({
   connectionString: CONNECTION_STRING,

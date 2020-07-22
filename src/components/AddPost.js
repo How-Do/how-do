@@ -32,7 +32,8 @@ function AddPost({ socket }) {
     setDescription("");
     setImageUrl("");
     setCategory("");
-    document.getElementById('howDoForm').reset()
+    document.getElementById('howDoForm').reset();
+    toggleButton();
   }
   //console.log('USERID', userId);
   console.log('USER PROPS 2', userId);
@@ -91,8 +92,12 @@ function AddPost({ socket }) {
                 <option  className="addpost-dropdown"
                 value="outdoors">Outdoors</option>
               </select>
-              <button className="addpost-submit-button"
-              type="submit" value="addHowDo" onClick={addPost}>
+              <button 
+              className="addpost-submit-button"
+              type="submit" 
+              value="addHowDo" 
+              onClick={addPost}
+              >
                 Ask
               </button>
             </form>

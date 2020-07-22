@@ -14,7 +14,7 @@
   height: 100vh;
   @include flexCenter(row);
 }
-.column-1 {
+.column-3 {
     width: 200px;
   .profile-info-container {
       display:flex;
@@ -32,7 +32,7 @@
     }
   }
 }
-.column-2 {
+.column-4 {
     padding-top: 300px;
   .welcome-container {
       background: $lightGreen;
