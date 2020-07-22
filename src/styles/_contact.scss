@@ -1,105 +1,96 @@
 .contact-container {
-    @include flexCenter(column);
+  @include flexCenter(column);
+  padding-bottom: 40px;
+  margin: 10px;
+}
+
+.contact-container .contact-blurb {
+  font-family: Helvetica;
+  font-size: 14pt;
+  color: #f0f3f2;
+  font-weight: 200;
+  padding: 0px 20px 0px 20px;
+}
+
+.contact-box {
+  margin-top: 5vh;
+  max-height: 75vh;
+  max-width: 45vw;
+  background: rgba(0, 0, 0, 0.651);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgb(95, 94, 94);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.contact-box input {
+  width: 160%;
+  font-family: Helvetica;
+  font-size: 12pt;
+  color: rgb(253, 253, 253);
+  border-radius: 1px;
+  padding-top: 1px;
+  background: rgba(0, 0, 0, 0.123);
+  border: 1px solid rgb(95, 94, 94);
+}
+.contact-input-text {
+  background: rgba(0, 0, 0, 0.123);
+  border: 1px solid rgb(95, 94, 94);
+  color: rgb(253, 253, 253);
+  font-size: 12pt;
+  font-family: Helvetica;
+}
+
+#input-title {
+  font-family: Helvetica;
+  font-size: 14pt;
+  color: #f0f3f2;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-family: Helvetica;
+  font-size: 24pt;
+  color: #f4f7f6;
+  margin-top: 5px;
+}
+
+.addpost-submit-button {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 80px;
+  margin: 5px;
+  padding: 10px;
+  background: $lightGrayGradient;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+@media (max-width: 680px) {
+  .contact-container {
+    min-height: 90vh;
+    max-height: 90vh;
     padding-bottom: 40px;
-    margin: 10px;
   }
-  
-  .contact-container .contact-blurb {
-    font-family: Helvetica;
-    font-size: 14pt;
-    color: #f0f3f2;
-    font-weight: 200;
-    padding: 0px 20px 0px 20px;
-  }
-  
   .contact-box {
     margin-top: 5vh;
-    max-height: 70vh;
-    max-width: 45vw;
-    background: rgba(0, 0, 0, 0.651);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgb(95, 94, 94);
+    min-height: 55vh;
+    max-height: 90vh;
+    width: 90vw;
     border-radius: 5px;
-    padding: 10px;
   }
-  
-  .contact-box input {
-    font-family: Helvetica;
-    font-size: 12pt;
-    color: rgb(253, 253, 253);
-    border-radius: 1px;
-    padding-top: 1px;
-    background: rgba(0, 0, 0, 0.123);
-    border: 1px solid rgb(95, 94, 94);
-  }
-  .contact-input-text{
-    background: rgba(0, 0, 0, 0.123);
-    border: 1px solid rgb(95, 94, 94);
-    color: rgb(253, 253, 253);
-    font-size: 12pt;
-    font-family: Helvetica;
-  }
-  
-  .contact-box h5 {
-    font-family: Helvetica;
-    font-size: 14pt;
-    color: #f0f3f2;
-    margin-bottom: 5px;
-    margin-top: 10px;
-  }
-  
   .contact-header {
-    display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-    font-family: Helvetica;
-    font-size: 24pt;
-    color: #f4f7f6;
-    margin-top: 5px;
+    font-size: 16pt;
   }
-  
-  .contact-button-container {
-    padding: 5px;
-    margin: 5px;
+  .contact-input-text {
+    width: 55vw;
+    height: 10px;
   }
-  
-  Button {
-    margin-bottom: 20px;
-    border: 1px solid rgb(95, 94, 94);
-  }
-
-  .addpost-submit-button{ 
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 80px;
-    margin:20px;
-    padding: 10px;
-    background: $lightGrayGradient; 
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-   }
-  
-  @media (max-width: 680px) {
-    .contact-container {
-      min-height: 90vh;
-      max-height: 90vh;
-      padding-bottom: 40px;
-    }
-    .contact-box {
-      margin-top: 5vh;
-      min-height: 55vh;
-      max-height: 90vh;
-      width: 90vw;
-      border-radius: 5px;
-    }
-    .contact-header {
-      font-size: 16pt;
-    }
-    .contact-input-text {
-      width: 55vw;
-      height: 10px;
-    }
-  }
+}
