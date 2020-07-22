@@ -1,5 +1,5 @@
 UPDATE VOTES
-  set "upote"= 0,
-  set "downvote"= 1,
+SET "upvote"= 0,
+    "downvote"= 1
 WHERE
-comment_id = $1 and user_id = $2
+comment_id = $2 and user_id = $1

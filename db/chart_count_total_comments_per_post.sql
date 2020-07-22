@@ -1,11 +1,3 @@
--- SELECT COUNT(post_id)
--- FROM posts
--- WHERE user_id = $1;
-
--- -- SELECT COUNT(comment_id)
--- -- FROM comments
--- -- WHERE user_id = $1;
-
 SELECT 
 COUNT(c.comment_id)
 FROM posts p

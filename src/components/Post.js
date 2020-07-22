@@ -28,9 +28,10 @@ function Post(props) {
   }, []);
 
   useEffect(() => {
+    // console.log('POST ID', postId)
     axios
       .get(`/howdo/comments/${postId}`)
-      .then(res => setCommentsArr(res.data))
+      .then(res => {setCommentsArr(res.data)})
       .catch(error => console.log(error));
   }, []);
 
@@ -46,18 +47,23 @@ function Post(props) {
     axios.post(`/howdo/upvote/${comment_id}`)}
 
   function downvote(comment_id){
+    // console.log('CommentsArr', commentsArr);
+    axios.post(`/howdo/downvote/${comment_id}`)}
 
-axios.post(`/howdo/downvote/${comment_id}`)}
-
-  const commentsMap = commentsArr.map(comment => (
-    <div>
-      {comment.comment}
-      <div className="user-info">{comment.full_name}</div>
-      <div className="">{comment.created_at}</div>
-      <button onClick={() => upvote(comment.comment_id)}> upvote </button>
-      <button onClick={() => downvote(comment.comment_id)}> downvote </button>
-    </div>
-  ));
+  const commentsMap = commentsArr.map(comment => {
+    // console.log('COMMENT',comment)
+    return(
+      <div>
+        {comment.comment}
+        <div className="user-info">{comment.full_name}</div>
+        <div className="">{comment.created_at}</div>
+        <button onClick={() => upvote(comment.comment_id)}> upvote </button>
+        <p>Upvotes: {comment.upvote}</p>
+        <p>Downvotes: {comment.downvote}</p>
+        <button onClick={() => downvote(comment.comment_id)}> downvote </button>
+      </div>
+    )
+  });
 
   return (
     <div className="Post-Container" style={{backgroundColor: "lightblue"}}>
