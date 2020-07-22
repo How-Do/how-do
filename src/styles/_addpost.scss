@@ -33,9 +33,9 @@
   flex-direction: column;
   flex-wrap: nowrap;
   @include opaque-blur;
-  min-height: 60vw;
-  max-height: 60vw;
-  width: 60vw;
+  min-height: 50vw;
+  max-height: 50vw;
+  width: 40vw;
   box-shadow: 0px 12px 18px -6px black;
   border-radius: 5px;
   z-index: 10;
@@ -145,11 +145,11 @@
 
 .box-entering {
   animation-name: entering;
-  animation-duration: 2s;
+  animation-duration: 0s;
 }
 .box-exiting {
   animation-name: leaving;
-  animation-duration: 2s;
+  animation-duration: 0s;
 }
 
 @keyframes entering {
@@ -157,13 +157,15 @@
     transform:translateX(0);
   }
   100% {
-      transform:translateX(166%);
+      transform:translateX(0);
+      // 166%
   }
 }
 
 @keyframes leaving {
   0% {
-    transform:translateX(160%);
+    transform:translateX(0);
+    //160%
   }
   100% {
     transform:translateX(0);
@@ -206,7 +208,21 @@
 
 
 /* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+  .box {
+    min-height: 50vw;
+    max-height: 50vw;
+    width: 50vw;
+  }
+  .box-entered {
+    left:-54vw;
+    top: -70vh;
+  }
+  .add-post-form {
+    width: 40vw;
+    height: 40vw;
+   }
+}
 
   /*end media query*/
   
@@ -222,8 +238,19 @@
   
   /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
   @media only screen and (min-width: 1200px) {
-  
-  
+    .box {
+      min-height: 30vw;
+      max-height: 35vw;
+      width: 45vw;
+    }
+    .box-entered {
+      left:-55vw;
+      top: -70vh;
+    }
+    .add-post-form {
+      width: 45vw;
+      height: 30vw;
+     }
   }
   /*end media query*/
   /*End desktop only styles*/
