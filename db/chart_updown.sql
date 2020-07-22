@@ -1,3 +1,3 @@
-SELECT COUNT(upvote), COUNT(downvote)
-FROM comments
-WHERE user_id = $1;
+select count(v.downvote) from votes v
+left join comments c on (v.user_id = c.user_id)
+where c.user_id = $1 and v.downvote > 0;

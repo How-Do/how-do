@@ -1,8 +1,70 @@
 /* ====================== Mobile styles ========================== */
+.mobile-header {
+  @include flexCenter(row);
+  position: fixed;
+  //justify-content: space-around;
+  height: 10vh;
+  width: 100vw;
+  @include opaque-blur;
+  margin-top: 10px;
+  z-index: 7;
 
+  .mobile-logo-block {
+    @include flexCenter(row);
+    //height: 10vh;
+    margin-left: 5px;
+
+
+    .logo {
+      height: 50px;
+    }
+
+    img:hover {
+    box-shadow: $whiteGlow;
+
+    }
+    h1 {
+      margin-left: 5px;
+      text-shadow: 2px 2px black;
+    }
+  }
+
+  #mobile-links {
+    @include flexCenter(column);
+    display: none;
+    position: absolute;
+    height: 195px;
+    width: 250px;
+    top: 12vh;
+    @include opaque-blur;
+    background-color: rgba(71, 70, 70, 0.93);
+
+<<<<<<< HEAD
+=======
+    a {
+      margin: 4px;
+      font-size: 18px;
+    }
+
+    .mobile-links-container {
+      @include flexCenter(column);
+    }
+    .mobile-login-div {
+      @include flexCenter(column);
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.desktop-header {
+  display: none;
+}
+
+>>>>>>> master
 /*End mobile and up styles*/
 /* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
 @media only screen and (min-width: 768px) {
+
 }
 
 /*end media query*/
@@ -14,8 +76,9 @@
 /*End landscape tablet and up styles*/
 
 /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
-//@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
 
+<<<<<<< HEAD
 .header-bar {
   @include flexCenter(row);
   position: fixed;
@@ -27,6 +90,10 @@
   z-index: 7;
 
   .logo-block {
+=======
+
+  .desktop-header {
+>>>>>>> master
     @include flexCenter(row);
     height: 100%;
     margin-left: 5px;
@@ -79,9 +146,18 @@
       font-size: x-large;
       //text-shadow: 2px 2px black;
     }
+    .logout-div {
+      padding-right: 30px;
+    }
+  }
+  .mobile-header {
+    display: none;
   }
 }
+<<<<<<< HEAD
 //}
+=======
+>>>>>>> master
 
 /*end media query*/
 /*End desktop only styles*/

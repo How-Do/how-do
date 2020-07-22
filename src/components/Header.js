@@ -33,43 +33,92 @@ const Header = () => {
     })
   }
 
+  const showMenu = () => {
+    var x = document.getElementById('mobile-links')
+    console.log(x, 'what is x')
+    if (x.style.display === 'block') {
+      x.style.display = 'none'
+    } else {
+      x.style.display = 'block'
+    }
+  }
+
+  function logout() {
+    axios.delete('/api/logout').then((res) => {
+      dispatch(setUser(null))
+      history.push('/')
+    })
+  }
+
   // console.log(state, 'state')
 
   return (
     <div className='header-bar'>
-      <div className='logo-block'>
-        <img src={logo} alt='logo' className='logo' />
-        <h1>howDo</h1>
+      <div className='desktop-header'>
+        <div className='logo-block'>
+          <img src={logo} alt='logo' className='logo' />
+          <h1>howDo</h1>
+        </div>
+        <div className='search-block'>
+          <input
+            placeholder='Search'
+            className='master-input-box'
+            onChange={(e) => searchPosts(e.target.value)}
+          />
+        </div>
+        <div className='links'>
+          <Link to={'/'}> Dashboard </Link>
+          <Link to={'/profile'}> Profile </Link>
+          <Link to={'/favorites'}> Favorites </Link>
+        </div>
+        <div>
+          {stateTwo.user ? (
+            <div className='logout-div'>
+              <button className='master-button' onClick={() => logout()}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className='login-div'>
+              <Login />
+            </div>
+          )}
+        </div>
       </div>
-      <div className='search-block'>
-        <input
-          placeholder='Search'
-          className='master-input-box'
-          onChange={(e) => searchPosts(e.target.value)}
-        />
-      </div>
-      <div className='links'>
-        <Link to={'/'}> Dashboard </Link>
-        <Link to={'/profile'}> Profile </Link>
-        <Link to={'/about'}> About </Link>
-      </div>
-      <div>
-        {stateTwo.user ? (
+      <div className='mobile-header'>
+        <div className='mobile-logo-block'>
+          <a onClick={showMenu}>
+            <img src={logo} alt='logo' className='logo' />
+          </a>
+          <h1>howDo</h1>
+        </div>
+        <div className='mobile-search-block'>
+          <input
+            placeholder='Search'
+            className='master-input-box'
+            onChange={(e) => searchPosts(e.target.value)}
+          />
+        </div>
+        <div id='mobile-links'>
+          <div className='mobile-links-container'>
+            <Link to={'/'}> Dashboard </Link>
+            <Link to={'/profile'}> Profile </Link>
+            <Link to={'/favorites'}> Favorites </Link>
+          </div>
           <div>
-            <button className='master-button' onClick={() => logout()}>
-              Logout
-            </button>
+            {stateTwo.user ? (
+              <div className='logout-div'>
+                <button className='master-button' onClick={() => logout()}>
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div className='mobile-login-div'>
+                <Login />
+              </div>
+            )}
           </div>
-        ) : (
-          <div className='login-div'>
-            <Login />
-            {/*<button*/}
-            {/*    onClick={() => loginWithRedirect()}*/}
-            {/*    className='master-button'>*/}
-            {/*    Login*/}
-            {/*</button>*/}
-          </div>
-        )}
+        </div>
       </div>
     </div>
   )

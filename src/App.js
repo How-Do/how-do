@@ -4,7 +4,7 @@ import Header from './components/Header'
 import './styles/styles.css'
 import routes from './routes'
 import AddPost from "./components/AddPost";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import axios from 'axios';
 import io from "socket.io-client";
 import {setUser} from "./redux/reducer";
@@ -17,6 +17,7 @@ const socket = io.connect("http://localhost:4000");
 
 function App() {
     const dispatch = useDispatch();
+    const stateTwo = useSelector(({reducer})=>reducer)
 
     useEffect(() => {
         axios.get('api/setUser')
@@ -28,7 +29,7 @@ function App() {
     <div className='App'>
       <Header />
       {routes({socket})}
-      <AddPost className="AddPost-container" socket={socket}/>
+        {stateTwo.user ? <AddPost className="AddPost-container" socket={socket}/> : null}
 
     </div>
   )
