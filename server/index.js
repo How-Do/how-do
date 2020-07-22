@@ -9,6 +9,9 @@ const postCtrl = require("./controllers/postController");
 const commentCtrl = require("./controllers/commentController");
 const chartCtrl = require("./controllers/chartController");
 const voteCtrl = require("./controllers/voteController");
+const contactCtrl = require('./controllers/contactController')
+
+
 const app = express();
 
 app.use(express.json());
@@ -22,6 +25,13 @@ app.use(
 );
 app.use(express.static(`${__dirname}/..build`));
 
+// Log out the request path (Code from JR to see endpoint calls in terminal)
+// app.use((req, res, next) => {
+//   console.log('\x1b[36m%s\x1b[0m', `\n${req.method} ${req.path}`)
+//   next()
+// })
+
+//auth endpoints
 app.post("/api/register", authCtrl.register);
 app.post("/api/login", authCtrl.login);
 app.delete("/api/logout", authCtrl.logout);
@@ -41,9 +51,12 @@ app.get("/howdo/chartpost/:id", chartCtrl.getPostsCount);
 app.get("/howdo/chartcomment/:id", chartCtrl.getCommentsCount);
 app.get("/howdo/chartdata/:id", chartCtrl.getPostCommentDataPerUser);
 
-//Vote endoints
+//vote endpoints
 app.post("/howdo/upvote/:comment_id", voteCtrl.upvoteComment);
 app.post("/howdo/downvote/:comment_id", voteCtrl.downvoteComment);
+
+//Nodemailer endpoints
+app.post("/howdo/contact", contactCtrl.sendEmail);
 
 massive({
   connectionString: CONNECTION_STRING,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import BarChart from "./BarChart";
+import ChartOne from "./ChartOne";
 import ChartTwo from "./ChartTwo";
 import { useSelector } from "react-redux";
 
@@ -22,7 +22,7 @@ const Profile = () => {
         </div>
         <div className="chart-card-container">
           <div className="outer-chart-container">
-            <BarChart />
+            <ChartOne />
           </div>
           <div className="outer-chart-container">
             <ChartTwo />
