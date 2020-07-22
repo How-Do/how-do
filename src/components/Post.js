@@ -41,16 +41,21 @@ function Post(props) {
     });
   }, []);
 
+  function upvote(comment_id){
+    console.log('comment_id', comment_id)
+    axios.post(`/howdo/upvote/${comment_id}`)}
+
+  function downvote(comment_id){
+
+axios.post(`/howdo/downvote/${comment_id}`)}
+
   const commentsMap = commentsArr.map(comment => (
     <div>
       {comment.comment}
       <div className="user-info">{comment.full_name}</div>
       <div className="">{comment.created_at}</div>
-      {/* NEED TO ADD UPVOTE DOWNVOTE TO DATABASE AND HERE */}
-      {/* <div className=''>
-                {comment.upvote}
-                {comment.downvote}
-            </div> */}
+      <button onClick={() => upvote(comment.comment_id)}> upvote </button>
+      <button onClick={() => downvote(comment.comment_id)}> downvote </button>
     </div>
   ));
 

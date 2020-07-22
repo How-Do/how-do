@@ -8,7 +8,7 @@ const authCtrl = require("./controllers/authController");
 const postCtrl = require("./controllers/postController");
 const commentCtrl = require("./controllers/commentController");
 const chartCtrl = require("./controllers/chartController");
-
+const voteCtrl = require("./controllers/voteController");
 const app = express();
 
 app.use(express.json());
@@ -39,6 +39,10 @@ app.post("/howdo/comment", commentCtrl.newComment);
 app.get("/howdo/chartpost/:id", chartCtrl.getPostsCount);
 app.get("/howdo/chartcomment/:id", chartCtrl.getCommentsCount);
 app.get("/howdo/chartdata/:id", chartCtrl.getPostCommentDataPerUser);
+
+//Vote endoints
+app.post("/howdo/upvote/:comment_id", voteCtrl.upvoteComment);
+app.post("/howdo/downvote/:comment_id", voteCtrl.downvoteComment);
 
 massive({
   connectionString: CONNECTION_STRING,
