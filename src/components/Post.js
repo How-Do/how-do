@@ -2,10 +2,8 @@ import React, {useState, useEffect} from "react";
 import AddComment from "./AddComment";
 import axios from "axios";
 
-//This component still needs to be updated to be able to pull the user from session once login is working
-
 function Post(props) {
-  const [userId, setUserId] = useState(1); //<-- This needs to be dynamic
+  const [userId, setUserId] = useState(1); 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -13,6 +11,7 @@ function Post(props) {
   const [timestamp, setTimestamp] = useState("");
   const [commentsArr, setCommentsArr] = useState([]);
   const [postId, setPostId] = useState(props.match.params.id);
+  const [vote, setVote] = useState(0)
 
   useEffect(() => {
     console.log("Props:", props);
@@ -33,7 +32,7 @@ function Post(props) {
       .get(`/howdo/comments/${postId}`)
       .then(res => {setCommentsArr(res.data)})
       .catch(error => console.log(error));
-  }, []);
+  }, [vote]);
 
   useEffect(() => {
     props.socket.on("sent-comment", body => {
@@ -44,11 +43,15 @@ function Post(props) {
 
   function upvote(comment_id){
     console.log('comment_id', comment_id)
-    axios.post(`/howdo/upvote/${comment_id}`)}
+    axios.post(`/howdo/upvote/${comment_id}`)
+    setVote(Math.random())
+  }
 
   function downvote(comment_id){
     // console.log('CommentsArr', commentsArr);
-    axios.post(`/howdo/downvote/${comment_id}`)}
+    axios.post(`/howdo/downvote/${comment_id}`)
+    setVote(Math.random())
+  }
 
   const commentsMap = commentsArr.map(comment => {
     // console.log('COMMENT',comment)

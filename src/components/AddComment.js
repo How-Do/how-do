@@ -26,30 +26,35 @@ function AddComment(props) {
   }
 
   return (
-    <div className="addcomment-container">
-      <h3>Comments</h3>
-      <form name="" className="commentForm">
-        <textarea
-          placeholder="Your best instructions and advice...🦝"
-          name="comment"
-          rows="3"
-          cols="30"
-          required
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
-        <input
-          type="url"
-          placeholder="Add an image url here if you would like..."
-          name="commentPic"
-          value={commentPic}
-          required
-          onChange={(e) => setCommentPic(e.target.value)}
-        />
-        <button type="submit" value="addComment" onClick={addComment}>
-          Answer
-        </button>
-      </form>
+    <div className="idk">
+      <h3>Comments: This is how we do it!</h3>
+      {userId ? 
+        <div className="addcomment-container">
+          <h4>Add Comment</h4>
+          <form name="" className="commentForm">
+            <textarea
+              placeholder="Your best instructions and advice...🦝"
+              name="comment"
+              rows="3"
+              cols="30"
+              required
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <input
+              type="url"
+              placeholder="Add an image url here if you would like..."
+              name="commentPic"
+              value={commentPic}
+              required
+              onChange={(e) => setCommentPic(e.target.value)}
+            />
+            <button type="submit" value="addComment" onClick={addComment}>
+              Answer
+            </button>
+          </form>
+        </div>
+      : null}
     </div>
   );
 }
