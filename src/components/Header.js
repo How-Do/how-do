@@ -69,7 +69,7 @@ const Header = () => {
         <div className='links'>
           <Link onClick={showMenu} to={'/'}> Dashboard </Link>
           <Link onClick={showMenu} to={'/profile'}> Profile </Link>
-          <Link onClick={showMenu} to={'/favorites'}> Favorites </Link>
+          <Link onClick={showMenu} to={'/about'}> About</Link>
         </div>
         <div>
           {stateTwo.user ? (
@@ -103,7 +103,7 @@ const Header = () => {
           <div className='mobile-links-container'>
             <Link onClick={showMenu} to={'/'}> Dashboard </Link>
             <Link onClick={showMenu} to={'/profile'}> Profile </Link>
-            <Link onClick={showMenu} to={'/favorites'}> Favorites </Link>
+            <Link onClick={showMenu} to={'/about'}> About </Link>
           </div>
           <div>
             {stateTwo.user ? (

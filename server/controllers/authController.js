@@ -42,8 +42,11 @@ module.exports = {
         req.session.user = {
           user_id: user[0].id,
           username: user[0].username,
+          email: user[0].email,
           is_admin: user[0].is_admin,
+          created_at: user[0].created_at,
           profile_pic: user[0].profile_pic,
+          user_description: user[0].user_description,
         }
         res.status(200).send(req.session.user)
       } else {
@@ -77,7 +80,7 @@ module.exports = {
     const hash = bcrypt.hashSync(password, salt)
     const updateUser = await db.update_user_info([id, username, email, hash, profilePic, userDescription])
     delete updateUser.hash
-    req.session.user = updateUser
+    req.session.user = updateUser[0]
     res.status(200).send(req.session.user) 
     } else {
         const updateUser = await db.update_user_info([id, username, email, user[0].password, profilePic, userDescription])

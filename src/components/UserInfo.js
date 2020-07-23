@@ -24,38 +24,6 @@ function UserInfo({ socket }) {
     const [isActive, setIsActive] = useState(false);
     const toggleButton = useCallback(() => setIsActive((pre) => !pre));
 
-  // function update(e) {
-  //   e.preventDefault();
-  //   socket.emit("update-user-info", {
-  //     userId,
-  //     username,
-  //     email,
-  //     password,
-  //     profilePic,
-  //     userDescription,
-  //   });
-  //   // setTitle("");
-  //   // setDescription("");
-  //   // setImageUrl("");
-  //   // setCategory("");
-  //   // document.getElementById("howDoForm").reset();
-  //   toggleButton();
-  // }
-  //console.log('USERID', userId);
-  console.log("USER PROPS 2", userId);
-
-
-//   useEffect(() => {
-//     axios
-//         .get('/howdo/posts')
-//         .then((res) => {
-//             setPosts(res.data)
-//             dispatch(setUsers(res.data))
-//         })
-//         .catch((error) => console.log(error))
-// }, [])
-
-
   const update = async (e) => {
     e.preventDefault();
     await axios
@@ -84,11 +52,10 @@ function UserInfo({ socket }) {
       <Transition timeout={0} in={isActive} appear>
         {(status) => (
           <div className={`userinfo-box userinfo-box-${status}`}>
-            <h3 className="info-text">Update User Info</h3>
             <form className="userinfo-form" id="howDoForm">
               <p className="userinfo-form-text">Username:</p>
               <input
-                className="addpost-form-input"
+                className="userinfo-form-input"
                 type="text"
                 name="username"
                 value={username}
@@ -97,7 +64,7 @@ function UserInfo({ socket }) {
               />
               <p className="userinfo-form-text">Email:</p>
               <input
-                className="addpost-form-input"
+                className="userinfo-form-input"
                 type="text"
                 name="email"
                 value={email}
@@ -106,34 +73,35 @@ function UserInfo({ socket }) {
               />
               <p className="userinfo-form-text">Password:</p>
               <input
-                className="addpost-form-input"
+                className="userinfo-form-input"
                 type="password"
                 name="password"
+                placeholder="Password"
                 value={password}
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
-               <p className="addpost-form-text">Profile Picture URL:</p>
+               <p className="userinfo-form-text">Profile Picture URL:</p>
               <input
-                className="addpost-form-input"
+                className="userinfo-form-input"
                 type="url"
                 name="profilePic"
                 value={profilePic}
                 required
                 onChange={(e) => setProfilePic(e.target.value)}
               />
-              <p className="addpost-form-text">Description:</p>
+              <p className="userinfo-form-text">Description:</p>
               <textarea
-                className="addpost-textarea"
+                className="userinfo-textarea"
                 name="userDescription"
                 rows="3"
-                cols="50"
+                cols="35"
                 required
                 value={userDescription}
                 onChange={(e) => setUserDescription(e.target.value)}
               />
               <button
-                className="addpost-submit-button"
+                className="userinfo-submit-button"
                 type="submit"
                 value="update"
                 onClick={update}
@@ -146,7 +114,7 @@ function UserInfo({ socket }) {
       </Transition>
       <div className="edit-button-container">
         <p className="userinfo-edit-button">Edit</p>
-        <HamburgerArrow buttonWidth={20} {...{ isActive, toggleButton }} />
+        <HamburgerArrow buttonWidth={20} {...{ isActive, toggleButton }}/>
       </div>
       <ToastContainer autoClose={2000} />
     </div>

@@ -60,9 +60,9 @@ function Post(props) {
     return (
       <div className="post-comment-container">
         <p className="minor-info-text">
-          {comment.username} {username} at {comment.created_at}
+          {comment.username} at {comment.created_at}
         </p>
-        {comment.comment}
+        <h4 id="comment-text">{comment.comment}</h4>
         <br />
         <p className="vote-info-text"> ↑ Upvotes: {comment.upvote}</p>
         <p className="vote-info-text">↓ Downvotes: {comment.downvote}</p>
@@ -94,7 +94,9 @@ function Post(props) {
             {category}
           </p>
           <p className="minor-info-text">
-            Posted by {username} at {timestamp}
+            Posted by {username}
+          </p>
+          <p className="minor-info-text">at {timestamp}
           </p>
         </div>
         <div>

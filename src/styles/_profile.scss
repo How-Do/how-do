@@ -16,36 +16,25 @@
   padding-top: 100px;
   min-height: 100vh;
 }
-
-  // .profile-info-container {
-  //     display:flex;
-  //     justify-content: center;
-  //     @include flexCenter(column);
     .profile-pic {
       height: 250px;
-      width: 250px;
+      width: 350px;
       background-position: center;
       object-fit: cover;
       margin:10px;
-      margin-right:50px;
-      margin-left:50px;
+      // margin-right:50px;
+      // margin-left:50px;
     }
     .userinfo-text{
         color:white;
         margin-bottom:5px;
     }
-  // }
 
+    #profile-box{
+      padding-bottom: 10px;
+    }
 
-  // .welcome-container {
-  //     background: $lightGreen;
-  //     height: 30px;
-  //     width: 80vw;
-  //     border: 1px solid rgb(95, 94, 94);
-  //     border-radius: 5px;
-  //   .username {
-  //     font-size: 20pt;
-  //     color: white;
-  //     font-family: 'helvetica';
-  //   }
-  // }
+    .userinfo-text-container{
+      padding:5px;
+      height:200px;
+    }

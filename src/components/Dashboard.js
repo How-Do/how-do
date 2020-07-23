@@ -33,6 +33,7 @@ function Dashboard(props) {
             })
             .catch((error) => console.log(error))
     }, [])
+    console.log(posts, "posts")
 
     useEffect(() => {
         setFilteredPosts(state.results)
