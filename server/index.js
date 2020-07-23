@@ -36,6 +36,7 @@ app.post("/api/register", authCtrl.register);
 app.post("/api/login", authCtrl.login);
 app.delete("/api/logout", authCtrl.logout);
 app.get("/api/setUser", authCtrl.setUser);
+app.put('/auth/user', authCtrl.updateUser);
 
 //app endpoints
 app.post("/howdo", postCtrl.newHowDo);
@@ -101,6 +102,18 @@ massive({
           )
           .catch(err => console.log(err));
       });
+      // socket.on("update-user-info", body => {
+      //   db.update_info(
+      //     body.userId,
+      //     body.username,
+      //     body.email,
+      //     // body.password,
+      //     body.profilePic,
+      //     body.userDescription,
+      //   )
+      //     .then(results => io.in("comments-section").emit("sent-post", results))
+      //     .catch(err => console.log(err));
+      // });
     });
   })
   .catch(error => console.log(error));

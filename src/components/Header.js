@@ -67,9 +67,9 @@ const Header = () => {
           />
         </div>
         <div className='links'>
-          <Link to={'/'}> Dashboard </Link>
-          <Link to={'/profile'}> Profile </Link>
-          <Link to={'/favorites'}> Favorites </Link>
+          <Link onClick={showMenu} to={'/'}> Dashboard </Link>
+          <Link onClick={showMenu} to={'/profile'}> Profile </Link>
+          <Link onClick={showMenu} to={'/favorites'}> Favorites </Link>
         </div>
         <div>
           {stateTwo.user ? (
@@ -80,7 +80,7 @@ const Header = () => {
             </div>
           ) : (
             <div className='login-div'>
-              <Login />
+              <Login onClick={showMenu}/>
             </div>
           )}
         </div>
@@ -101,9 +101,9 @@ const Header = () => {
         </div>
         <div id='mobile-links'>
           <div className='mobile-links-container'>
-            <Link to={'/'}> Dashboard </Link>
-            <Link to={'/profile'}> Profile </Link>
-            <Link to={'/favorites'}> Favorites </Link>
+            <Link onClick={showMenu} to={'/'}> Dashboard </Link>
+            <Link onClick={showMenu} to={'/profile'}> Profile </Link>
+            <Link onClick={showMenu} to={'/favorites'}> Favorites </Link>
           </div>
           <div>
             {stateTwo.user ? (
@@ -114,7 +114,7 @@ const Header = () => {
               </div>
             ) : (
               <div className='mobile-login-div'>
-                <Login />
+                <Login onClick={showMenu}/>
               </div>
             )}
           </div>

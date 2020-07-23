@@ -1,47 +1,40 @@
+.edit-button-container{
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  right:20px;
+}
 .userinfo-green-container {
     display: flex;
-    position: fixed;
+    // position: fixed;
     justify-content: center;
     align-items: center;
-    right: 2vw;
-    bottom: 50px;
-    width: 60px;
-    height: 60px;
+    //left: 70vw;
+    //bottom: 50px;
+    width: 30px;
+    height: 25px;
+    padding-top:2px;
     border-radius: 5px;
     color: rgb(255, 255, 255);
-    box-shadow: 0px 12px 18px -6px black;
     @include opaque-blur;
+    z-index:10;
+    margin: 10px;
+    margin-left:310px;
   }
   
   .userinfo-green-container:hover {
     box-shadow: $whiteGlow;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  .box {
-    position: fixed;
-    left:-170vw;
-    top: -65vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 40px;
-    
-  
-    flex-direction: column;
-    flex-wrap: nowrap;
     @include opaque-blur;
-    min-height: 50vw;
-    max-height: 50vw;
-    width: 40vw;
-    box-shadow: 0px 12px 18px -6px black;
-    border-radius: 5px;
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.651);
-    border: 1px solid rgb(95, 94, 94);
-    backdrop-filter: blur(6px);
   }
-  .box-entered {
+
+  .userinfo-edit-button{
+    color:white;
+    position:absolute;
+    top:-20px;
+  }
+  
+  .userinfo-box-entered {
     position: fixed;
     display: flex;
     align-items: center;
@@ -53,8 +46,12 @@
     border: 1px solid rgb(95, 94, 94);
     backdrop-filter: blur(50%);
   }
-  .how-text{
-      font-size:40pt;
+  .userinfo-box-exited {
+    left:-120vw;
+    top: -40vh;
+  }
+  .info-text{
+      font-size:30pt;
       margin-bottom: 10px;
       // background: rgba(0, 0, 0, 0.651);
       // box-shadow: 0px 0px 18px 0px black;
@@ -62,7 +59,7 @@
       // padding-left:3px;
   }
   
-  .add-post-form {
+  .userinfo-form {
     width: 50vw;
     height: 50vw;
     background: rgba(0, 0, 0, 0.651);
@@ -73,79 +70,44 @@
     align-items: center;
    }
   
-   .addpost-form-text{
-     margin:0;
-     font-size:14pt;
-     font-weight: 600;
-   }
+
+  //  .addpost-form-text{
+  //    margin:0;
+  //    font-size:14pt;
+  //    font-weight: 600;
+  //  }
   
-   .addpost-textarea{
-     margin-bottom: 10px;
-     border-bottom: 1px solid white;
-    background: transparent;
-    color: white;
-    padding:5px;
-   }
-   .addpost-textarea:focus{
-    margin-bottom: 10px;
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    padding:5px;
-  }
+  //  .addpost-textarea{
+  //    margin-bottom: 10px;
+  //    border-bottom: 1px solid white;
+  //   background: transparent;
+  //   color: white;
+  //   padding:5px;
+  //  }
+  //  .addpost-textarea:focus{
+  //   margin-bottom: 10px;
+  //   border: 1px solid white;
+  //   background: transparent;
+  //   color: white;
+  //   padding:5px;
+  // }
   
-   .addpost-form-input{
-    width: 80%;
-    margin-bottom: 20px;
-    border: none;
-    border-bottom: 1px solid white;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color:  white;
-    font-size: 16px;
-   }
-  
-   .addpost-dropdown{
-     margin-top: 5px;
-     background: $lightGrayGradient;
-     color: white;
-     padding:5px;
-     border-radius: 5px;
-     font-size: 16px;
-   }
-  
-   .addpost-dropdown:hover{
-    background: $blackGradient;
-    color: white;
-    padding:5px;
-    border-radius: 5px;
-    font-size: 16px;
-   }
-  
-  .addpost-submit-button{ 
-   border: none;
-   outline: none;
-   height: 40px;
-   width: 80px;
-   margin:20px;
-   padding: 10px;
-   background: $lightGrayGradient; 
-   color: white;
-   font-size: 18px;
-   border-radius: 5px;
-  }
-  .addpost-submit-button:hover{
-   cursor: pointer;
-   background: $blackGradient;
-   background-blend-mode: multiply;
-  }
-  
-  .box-entering {
+  //  .addpost-form-input{
+  //   width: 80%;
+  //   margin-bottom: 20px;
+  //   border: none;
+  //   border-bottom: 1px solid white;
+  //   background: transparent;
+  //   outline: none;
+  //   height: 40px;
+  //   color:  white;
+  //   font-size: 16px;
+  //  }
+  .userinfo-box-entering {
     animation-name: entering;
     animation-duration: 0s;
   }
-  .box-exiting {
+  .userinfo-box-exiting {
     animation-name: leaving;
     animation-duration: 0s;
   }
@@ -169,26 +131,14 @@
       transform:translateX(0);
     }
   }
-  
+
   @media (min-width: 1200px) {
-    .add-post-form {
+    .userinfo-form {
       width: 40vw;
       height: 40vw;
     }
-    .box {
-      position: fixed;
-      left:-70vw;
-      top: 20vh;
-      padding: 40px;
-      min-height: 45vw;
-      max-height: 60vw;
-      width: 50vw;
-  
-      // position: fixed;
-      // left:-170vw;
-      // top: -65vh;
-    }
-    .box-entered {
+   
+    .userinfo-box-entered {
       position: fixed;
       left:-70vw;
       top: -65vh;
@@ -199,7 +149,16 @@
   }
   
   /* ====================== Mobile styles ========================== */
-  
+  @media only screen and (min-width: 300px) {
+    .userinfo-box-entered {
+      left:-54vw;
+      top: -70vh;
+    }
+    .userinfo-form {
+      width: 40vw;
+      height: 40vw;
+     }
+  }
   
   
   /*End mobile and up styles*/
@@ -207,16 +166,11 @@
   
   /* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
   @media only screen and (min-width: 768px) {
-    .box {
-      min-height: 50vw;
-      max-height: 50vw;
-      width: 50vw;
-    }
-    .box-entered {
+    .userinfo-box-entered {
       left:-54vw;
       top: -70vh;
     }
-    .add-post-form {
+    .userinfo-form {
       width: 40vw;
       height: 40vw;
      }
@@ -236,16 +190,16 @@
     
     /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
     @media only screen and (min-width: 1200px) {
-      .box {
-        min-height: 30vw;
-        max-height: 35vw;
-        width: 45vw;
+      .userinfo-box-entered {
+        left:-5vw;
+        top: -40vh;
+        z-index:100;
       }
-      .box-entered {
-        left:-55vw;
-        top: -70vh;
+      .userinfo-box-exited {
+        left:-120vw;
+        top: -40vh;
       }
-      .add-post-form {
+      .userinfo-form {
         width: 45vw;
         height: 30vw;
        }

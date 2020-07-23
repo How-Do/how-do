@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 function AddComment(props) {
   const [comment, setComment] = useState("");
@@ -9,9 +9,9 @@ function AddComment(props) {
   console.log(props);
   console.log(props.socket);
 
-  const userId = useSelector(
-    (reduxState) => reduxState.reducer.user ? reduxState.reducer.user.user_id : null
-  )
+  const userId = useSelector((reduxState) =>
+    reduxState.reducer.user ? reduxState.reducer.user.user_id : null
+  );
 
   function addComment(e) {
     e.preventDefault();
@@ -26,10 +26,11 @@ function AddComment(props) {
   }
 
   return (
-    <div className="addcomment-container">
-      <h3>Comments</h3>
-      <form name="" className="commentForm">
+    <div className="post-container" id="add-comment-container">
+      <h3 className="add-comment-title">Leave a comment:</h3>
+      <form name="commentForm" className="commentForm">
         <textarea
+        className="add-comment-input"
           placeholder="Your best instructions and advice...🦝"
           name="comment"
           rows="3"
@@ -38,16 +39,17 @@ function AddComment(props) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-        <input
+        {/* <input
+        className="add-comment-input"
           type="url"
-          placeholder="Add an image url here if you would like..."
+          placeholder="Optional Image URL"
           name="commentPic"
           value={commentPic}
           required
           onChange={(e) => setCommentPic(e.target.value)}
-        />
-        <button type="submit" value="addComment" onClick={addComment}>
-          Answer
+        /> */}
+        <button className="add-comment-button" type="submit" value="addComment" onClick={addComment}>
+          Submit
         </button>
       </form>
     </div>
