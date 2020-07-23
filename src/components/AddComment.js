@@ -55,7 +55,7 @@ function AddComment(props) {
         </button>
       </form>
       </div>
-      : <h4 className="add-comment-title">Log in to leave a comment.</h4>}
+      : <h4 className="add-comment-title">Log in to leave a comment and vote.</h4>}
     </div>
   );
 }

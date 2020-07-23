@@ -10,6 +10,8 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { setResults } from '../redux/searchReducer'
 import Login from './Login'
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
   const state = useSelector(({ searchReducer }) => searchReducer)
@@ -138,6 +140,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {/* <ToastContainer autoClose={2000} /> */}
     </div>
   )
 }

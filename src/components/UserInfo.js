@@ -42,7 +42,10 @@ function UserInfo({ socket }) {
          dispatch(setUser(res.data))
       })
       .catch((err) => {
-        alert("Could not update user information");
+        toast.error("Could not update user information", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
+        //alert("Could not update user information");
       });
       toggleButton();
   };
@@ -59,7 +62,6 @@ function UserInfo({ socket }) {
                 type="text"
                 name="username"
                 value={username}
-                required
                 onChange={(e) => setUsername(e.target.value)}
               />
               <p className="userinfo-form-text">Email:</p>
@@ -68,7 +70,6 @@ function UserInfo({ socket }) {
                 type="text"
                 name="email"
                 value={email}
-                required
                 onChange={(e) => setEmail(e.target.value)}
               />
               <p className="userinfo-form-text">Password:</p>
@@ -76,9 +77,9 @@ function UserInfo({ socket }) {
                 className="userinfo-form-input"
                 type="password"
                 name="password"
+                required="input your old password or a new one"
                 placeholder="Password"
                 value={password}
-                required
                 onChange={(e) => setPassword(e.target.value)}
               />
                <p className="userinfo-form-text">Profile Picture URL:</p>
@@ -87,7 +88,6 @@ function UserInfo({ socket }) {
                 type="url"
                 name="profilePic"
                 value={profilePic}
-                required
                 onChange={(e) => setProfilePic(e.target.value)}
               />
               <p className="userinfo-form-text">Description:</p>
@@ -96,7 +96,6 @@ function UserInfo({ socket }) {
                 name="userDescription"
                 rows="3"
                 cols="35"
-                required
                 value={userDescription}
                 onChange={(e) => setUserDescription(e.target.value)}
               />

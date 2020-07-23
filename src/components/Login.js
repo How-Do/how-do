@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux'
 import { setUser } from '../redux/reducer'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import { toast } from 'react-toastify'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -16,8 +17,10 @@ function Login() {
       .then((res) => dispatch(setUser(res.data)))
       .catch((error) => {
         console.log(error)
-        // toast('Username or password incorrect.')
-        alert('Username or password incorrect.')
+        //alert('Username or password incorrect.')
+        toast.error("Username or password incorrect", {
+          position: toast.POSITION.BOTTOM_RIGHT
+        });
       })
   }
 
@@ -47,6 +50,7 @@ function Login() {
           Register
         </Link>
       </div>
+      <ToastContainer autoClose={2000} />
     </div>
   )
 }
