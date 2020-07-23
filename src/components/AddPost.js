@@ -13,11 +13,9 @@ function AddPost({ socket }) {
   const [category, setCategory] = useState("");
   const [isActive, setIsActive] = useState(false);
   const toggleButton = useCallback(() => setIsActive((pre) => !pre));
-  
-  
-  const userId = useSelector(
-    (reduxState) => reduxState.reducer.user ? reduxState.reducer.user.user_id : null
-  )
+
+  const userId = useSelector((reduxState) =>
+    reduxState.reducer.user ? reduxState.reducer.user.user_id : null);
 
   function addPost(e) {
     e.preventDefault();
@@ -40,16 +38,14 @@ function AddPost({ socket }) {
 
   return (
     <div className="AddPost-green-container">
-      <Transition timeout={2000} in={isActive} appear>
+      <Transition timeout={100} in={isActive} appear>
         {(status) => (
           <div className={`box box-${status}`}>
             <h3 className="how-text">Ask a Question</h3>
             <form className="add-post-form" id="howDoForm">
-            {/* <h3 className="how-text">Ask a Question</h3> */}
             <p className="addpost-form-text">How Do I:</p>
               <input className="addpost-form-input"
                 type="text"
-                //placeholder="How Do I..."
                 name="title"
                 value={title}
                 required
@@ -57,7 +53,6 @@ function AddPost({ socket }) {
               />
               <p className="addpost-form-text">Additional Details:</p>
               <textarea className="addpost-textarea"
-                //placeholder="Add any additional details/description here...🦝"
                 name="description"
                 rows="3"
                 cols="50"
@@ -68,7 +63,6 @@ function AddPost({ socket }) {
               <p className="addpost-form-text">Optional Image URL:</p>
               <input className="addpost-form-input"
                 type="url"
-                //placeholder="Add an image url here if you would like..."
                 name="image_url"
                 value={imageUrl}
                 required

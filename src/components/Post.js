@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import AddComment from "./AddComment";
 import axios from "axios";
 
@@ -9,13 +9,14 @@ function Post(props) {
   const [imageUrl, setImageUrl] = useState("");
   const [category, setCategory] = useState("");
   const [timestamp, setTimestamp] = useState("");
+  const [username, setUsername] = useState("");
   const [commentsArr, setCommentsArr] = useState([]);
   const [postId, setPostId] = useState(props.match.params.id);
   const [vote, setVote] = useState(0)
 
   useEffect(() => {
     console.log("Props:", props);
-    axios.get(`/howdo/post/${postId}`).then(res => {
+    axios.get(`/howdo/post/${postId}`).then((res) => {
       console.log(res.data);
       setUserId(res.data.user_id);
       setTitle(res.data.title);
@@ -23,6 +24,7 @@ function Post(props) {
       setImageUrl(res.data.post_pic);
       setCategory(res.data.category);
       setTimestamp(res.data.created_at);
+      setUsername(res.data.username);
     });
   }, []);
 
@@ -35,7 +37,7 @@ function Post(props) {
   }, [vote]);
 
   useEffect(() => {
-    props.socket.on("sent-comment", body => {
+    props.socket.on("sent-comment", (body) => {
       // console.log(body)
       setCommentsArr(body);
     });
@@ -47,40 +49,61 @@ function Post(props) {
     setVote(Math.random())
   }
 
-  function downvote(comment_id){
+  function downvote(comment_id) {
     // console.log('CommentsArr', commentsArr);
     axios.post(`/howdo/downvote/${comment_id}`)
     setVote(Math.random())
   }
 
-  const commentsMap = commentsArr.map(comment => {
+  const commentsMap = commentsArr.map((comment) => {
     // console.log('COMMENT',comment)
-    return(
-      <div>
+    return (
+      <div className="post-comment-container">
+        <p className="minor-info-text">
+          {comment.username} {username} at {comment.created_at}
+        </p>
         {comment.comment}
-        <div className="user-info">{comment.full_name}</div>
-        <div className="">{comment.created_at}</div>
-        <button onClick={() => upvote(comment.comment_id)}> upvote </button>
-        <p>Upvotes: {comment.upvote}</p>
-        <p>Downvotes: {comment.downvote}</p>
-        <button onClick={() => downvote(comment.comment_id)}> downvote </button>
+        <br />
+        <p className="vote-info-text"> ↑ Upvotes: {comment.upvote}</p>
+        <p className="vote-info-text">↓ Downvotes: {comment.downvote}</p>
+        <div className="vote-buttons-container">
+          <button
+            className="vote-button"
+            onClick={() => upvote(comment.comment_id)}
+          >
+            {" "}
+            upvote{" "}
+          </button>
+          <button
+            className="vote-button"
+            onClick={() => downvote(comment.comment_id)}
+          >
+            {" "}
+            downvote{" "}
+          </button>
+        </div>
       </div>
-    )
+    );
   });
 
   return (
-    <div className="Post-Container" style={{backgroundColor: "lightblue"}}>
-      <div>
-        <p>{category}</p>
-        <p>Username</p>
-        <div>{timestamp}</div>
+    <div className="Post-Container">
+      <div className="post-container">
+        <div className="post-info-top-container">
+          <p className="minor-info-text" id="category-minor-text">
+            {category}
+          </p>
+          <p className="minor-info-text">
+            Posted by {username} at {timestamp}
+          </p>
+        </div>
+        <div>
+          <h2 className="post-title">{title}</h2>
+          <img src={imageUrl} alt="post" className="post-pic" width="350" />
+          <p className="post-description">{description}</p>
+        </div>
       </div>
-      <div>
-        <p>{title}</p>
-        <img src={imageUrl} alt="post" width="200" height="200" />
-        <p>{description}</p>
-      </div>
-      <div className="Comments-Container">
+      <div className="Add-Comments-Container">
         <br />
         <AddComment id={postId} socket={props.socket} />
       </div>

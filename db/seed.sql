@@ -13,7 +13,8 @@ CREATE TABLE "users" (
   "password" varchar,
   "is_admin" boolean default false,
   "created_at" timestamp DEFAULT now(),
-  "profile_pic" text
+  "profile_pic" text,
+  "user_description" text
 );
 
 CREATE TABLE "comments" (
@@ -60,3 +61,4 @@ ALTER TABLE "posts" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 ALTER TABLE "posts" ADD FOREIGN KEY ("category") REFERENCES "category" ("id");
 
 ALTER TABLE "users" ADD "profile_pic" text;
+ALTER TABLE "users" ADD "user_description" text;

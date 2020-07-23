@@ -5,10 +5,10 @@
     justify-content: space-around;
         font-family: 'Helvetica', 'Arial', sans-serif;
         flex-wrap:wrap;
-        padding-bottom: 50px;
     .outer-chart-container{
         @include opaque-blur;
-        background: rgba(0, 0, 0, 0.651);
+        // background: rgba(0, 0, 0, 0.651);
+        //background-color: rgba(51, 51, 51, 0.973);;
         margin-top:50px;
         border-radius: 5px;
         margin: 10px;

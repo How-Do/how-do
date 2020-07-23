@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Bar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-function ChartOne(props) {
-  const [postCount, setPostCount] = useState(0);
-  const [commentCount, setCommentCount] = useState(0);
+function ChartThree() {
+  const [upvoteCount, setUpvoteCount] = useState(0);
+  const [downvoteCount, setDownvoteCount] = useState(0);
   const [state, setState] = useState({});
 
   const userId = useSelector((reduxState) =>
@@ -14,35 +14,27 @@ function ChartOne(props) {
 
   useEffect(() => {
     axios
-      .get(`/howdo/chartpost/${userId}`)
+      .get(`/howdo/chartupvote/${userId}`)
       .then((res) =>
         // console.log(res.data))
-        setPostCount(+res.data.count)
+        setUpvoteCount(+res.data.count)
       )
       .catch((error) => console.log(error));
     axios
-      .get(`/howdo/chartcomment/${userId}`)
-      .then((res) => setCommentCount(+res.data.count))
+      .get(`/howdo/chartdownvote/${userId}`)
+      .then((res) => setDownvoteCount(+res.data.count))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
     setState({
       chartData: {
-        // labels: ["Casual Learner", "Regular Scholar", "Devoted Savant"],
-        labels: ["Total Questions Asked", "Total Answers Given"],
+        labels: ["Upvotes", "Downvotes"],
         datasets: [
           {
             label: "User Info",
-            data: [postCount, commentCount],
-            backgroundColor: [
-              // "#637462",
-              // "#6D835C",
-              // "#4E763B",
-              // "#729C65",
-              "#193C0D",
-              "#4CBB17",
-            ],
+            data: [upvoteCount, downvoteCount],
+            backgroundColor: ["#351c75", "#8e7cc3"],
             borderWidth: 0,
             borderColor: "#ffffff",
             hoverBorderWidth: 1,
@@ -52,7 +44,7 @@ function ChartOne(props) {
       },
       count: 0,
     });
-  }, [postCount, commentCount]);
+  }, [upvoteCount, downvoteCount]);
   return (
     <div className="chart-container">
       <div
@@ -64,14 +56,14 @@ function ChartOne(props) {
           position: "center",
         }}
       >
-        <Bar
+        <Doughnut
           data={state.chartData}
           options={{
             maintainAspectRatio: false,
             responsive: true,
             title: {
               display: true,
-              text: "Lifetime Questions and Answers",
+              text: "Lifetime Upvotes & Downvotes",
               fontSize: 16,
               position: "top",
               fontFamily: "Helvetica",
@@ -79,8 +71,10 @@ function ChartOne(props) {
               fontColor: "#ffffff",
             },
             legend: {
-              display: false,
+              display: true,
               position: "bottom",
+              textColor: "#ffffff",
+              borderWidth: 0,
             },
             scales: {
               yAxes: [
@@ -89,7 +83,7 @@ function ChartOne(props) {
                     beginAtZero: true,
                     maxTicksLimit: 5,
                     autoSkip: true,
-                    display: true,
+                    display: false,
                     fontColor: "white",
                   },
                   gridLines: {
@@ -100,7 +94,7 @@ function ChartOne(props) {
               xAxes: [
                 {
                   ticks: {
-                    display: true,
+                    display: false,
                     fontColor: "white",
                   },
                   gridLines: {
@@ -116,4 +110,4 @@ function ChartOne(props) {
   );
 }
 
-export default ChartOne;
+export default ChartThree;

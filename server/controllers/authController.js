@@ -61,4 +61,29 @@ module.exports = {
     }
     res.status(200).send(req.session.user)
   },
+  updateUser: async ( req, res ) => {
+    const db = req.app.get('db')
+    const {userId, username, email, password, profilePic, userDescription} = req.body;
+    console.log(req.body, "req.body")
+    //console.log(req.session.user, "1")
+    //console.log(req.session, "2")
+    //const {user_id} = req.session.user 
+    const id = userId 
+    const user = await db.check_user(username)
+    console.log(user, "user")
+    
+    if (password) {
+    const salt = bcrypt.genSaltSync(10)
+    const hash = bcrypt.hashSync(password, salt)
+    const updateUser = await db.update_user_info([id, username, email, hash, profilePic, userDescription])
+    delete updateUser.hash
+    req.session.user = updateUser
+    res.status(200).send(req.session.user) 
+    } else {
+        const updateUser = await db.update_user_info([id, username, email, user[0].password, profilePic, userDescription])
+        delete updateUser.password
+        req.session.user = updateUser
+        res.status(200).send(req.session.user)
+    }
+}
 }

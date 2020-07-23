@@ -11,39 +11,41 @@
         rgba(0, 0, 0, 0.4) 120%)
       #4d4d4d;
   background-size: cover;
-  height: 100vh;
   @include flexCenter(row);
+  padding-bottom: 20px;
+  padding-top: 100px;
+  min-height: 100vh;
 }
-.column-3 {
-    width: 200px;
-  .profile-info-container {
-      display:flex;
-      justify-content: center;
-      @include flexCenter(column);
+
+  // .profile-info-container {
+  //     display:flex;
+  //     justify-content: center;
+  //     @include flexCenter(column);
     .profile-pic {
-      height: 100px;
-      width: 100px;
+      height: 250px;
+      width: 250px;
       background-position: center;
       object-fit: cover;
       margin:10px;
+      margin-right:50px;
+      margin-left:50px;
     }
-    .user-info-text{
+    .userinfo-text{
         color:white;
+        margin-bottom:5px;
     }
-  }
-}
-.column-4 {
-    padding-top: 300px;
-  .welcome-container {
-      background: $lightGreen;
-      height: 30px;
-      width: 80vw;
-      border: 1px solid rgb(95, 94, 94);
-      border-radius: 5px;
-    .username {
-      font-size: 20pt;
-      color: white;
-      font-family: 'helvetica';
-    }
-  }
-}
+  // }
+
+
+  // .welcome-container {
+  //     background: $lightGreen;
+  //     height: 30px;
+  //     width: 80vw;
+  //     border: 1px solid rgb(95, 94, 94);
+  //     border-radius: 5px;
+  //   .username {
+  //     font-size: 20pt;
+  //     color: white;
+  //     font-family: 'helvetica';
+  //   }
+  // }
