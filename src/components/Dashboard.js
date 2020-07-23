@@ -21,6 +21,7 @@ function Dashboard(props) {
             // alert(body.content)
             console.log(body)
             setPosts(body)
+            dispatch(setResults(body))
         })
     }, [])
 
@@ -54,8 +55,8 @@ function Dashboard(props) {
                             <img src={post.post_pic} className='post-pic' alt='post'/>
                             <br/>
                             {post.description}
-                            {post.comment_count ? (
-                                <div className='if-comments'> {post.comment_count} HowDoers have spoken! </div>
+                            {post.comment_count ? (post.comment_count > 1 ?
+                                <div className='if-comments'> {post.comment_count} HowDoers have spoken! </div> : <div className='if-comments'> {post.comment_count} HowDoer has spoken! </div>
                             ) : (
                                 <div className='if-comments'> Looking for more input.... </div>
                             )}
