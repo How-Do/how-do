@@ -27,6 +27,8 @@ function AddComment(props) {
 
   return (
     <div className="post-container" id="add-comment-container">
+      {userId ?
+      <div>
       <h3 className="add-comment-title">Leave a comment:</h3>
       <form name="commentForm" className="commentForm">
         <textarea
@@ -52,6 +54,8 @@ function AddComment(props) {
           Submit
         </button>
       </form>
+      </div>
+      : <h3 className="add-comment-title">Log in to leave a comment.</h3>}
     </div>
   );
 }
