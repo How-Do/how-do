@@ -17,7 +17,6 @@ function Post(props) {
   useEffect(() => {
     console.log("Props:", props);
     axios.get(`/howdo/post/${postId}`).then((res) => {
-      console.log(res.data);
       setUserId(res.data.user_id);
       setTitle(res.data.title);
       setDescription(res.data.description);
@@ -29,7 +28,6 @@ function Post(props) {
   }, []);
 
   useEffect(() => {
-    // console.log('POST ID', postId)
     axios
       .get(`/howdo/comments/${postId}`)
       .then(res => {setCommentsArr(res.data)})
