@@ -54,9 +54,9 @@ function Dashboard(props) {
                             <br/>
                             {post.description}
                             {post.comment_count ? (
-                              <div className='if-comments'> {post.comment_count} HowDoers have spoken! </div>
+                                <div className='if-comments'> {post.comment_count} HowDoers have spoken! </div>
                             ) : (
-                              <div className='if-comments'> Looking for more input.... </div>
+                                <div className='if-comments'> Looking for more input.... </div>
                             )}
                         </div>
                     </div>
@@ -85,44 +85,46 @@ function Dashboard(props) {
     // console.log(state.results, 'state.results')
     return (
         <div className='dashboard'>
-            <div className='categories'>
-                {/*<div className='each-category'>*/}
-                <a onClick={(e) => categorySelector('hobbies')} name='hobbies'>
-                    <img src={hobbies} className='hobbies' alt='hobby-category-pic'/>
-                </a>
-                <a onClick={(e) => categorySelector('outdoors')} name='outdoors'>
-                    <img
-                        src={outdoors}
-                        className='outdoors'
-                        alt='outdoor-category-pic'
-                    />
-                </a>
-                <a
-                    onClick={(e) => categorySelector('home_improvement')}
-                    name='home_improvement'>
-                    <img
-                        src={homeimp}
-                        className='homeimp'
-                        alt='homeimprovement-category-pic'
-                    />
-                </a>
-                <a
-                    onClick={(e) => categorySelector('food_and_drink')}
-                    name='food_and_drink'>
-                    <img src={food} className='food' alt='food&drink-category-pic'/>
-                </a>
-                <a onClick={(e) => categorySelector('life_hacks')} name='life_hacks'>
-                    <img
-                        src={lifehacks}
-                        className='likehacks'
-                        alt='lifehacks-category-pic'
-                    />
-                </a>
-                {/*</div>*/}
+            <div className='left-column'>
+                <div className='categories'>
+                    {/*<div className='each-category'>*/}
+                    <a onClick={(e) => categorySelector('hobbies')} name='hobbies'>
+                        <img src={hobbies} className='hobbies' alt='hobby-category-pic'/>
+                    </a>
+                    <a onClick={(e) => categorySelector('outdoors')} name='outdoors'>
+                        <img
+                            src={outdoors}
+                            className='outdoors'
+                            alt='outdoor-category-pic'
+                        />
+                    </a>
+                    <a
+                        onClick={(e) => categorySelector('home_improvement')}
+                        name='home_improvement'>
+                        <img
+                            src={homeimp}
+                            className='homeimp'
+                            alt='homeimprovement-category-pic'
+                        />
+                    </a>
+                    <a
+                        onClick={(e) => categorySelector('food_and_drink')}
+                        name='food_and_drink'>
+                        <img src={food} className='food' alt='food&drink-category-pic'/>
+                    </a>
+                    <a onClick={(e) => categorySelector('life_hacks')} name='life_hacks'>
+                        <img
+                            src={lifehacks}
+                            className='likehacks'
+                            alt='lifehacks-category-pic'
+                        />
+                    </a>
+                    {/*</div>*/}
+                </div>
             </div>
             <div className='column-2'>
                 {!stateTwo.user ? (
-                    <div className='about'>
+                    <div className='about-summary'>
                         <p>
                             Welcome to <span className='title'>howDo</span> – the site where
                             you ask how to do stuff, and we tell you how it’s done.
