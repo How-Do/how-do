@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { setUser } from '../redux/reducer'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+// import { toast } from 'react-toastify'
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -13,7 +14,11 @@ function Login() {
     axios
       .post('/api/login', { username, password })
       .then((res) => dispatch(setUser(res.data)))
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        console.log(error)
+        // toast('Username or password incorrect.')
+        alert('Username or password incorrect.')
+      })
   }
 
   return (
