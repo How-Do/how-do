@@ -39,8 +39,6 @@
     @include opaque-blur;
     background-color: rgba(71, 70, 70, 0.93);
 
-<<<<<<< HEAD
-=======
     a {
       margin: 4px;
       font-size: 18px;
@@ -60,7 +58,6 @@
   display: none;
 }
 
->>>>>>> master
 /*End mobile and up styles*/
 /* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
 @media only screen and (min-width: 768px) {
@@ -78,7 +75,6 @@
 /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
 @media only screen and (min-width: 1200px) {
 
-<<<<<<< HEAD
 .header-bar {
   @include flexCenter(row);
   position: fixed;
@@ -90,10 +86,8 @@
   z-index: 7;
 
   .logo-block {
-=======
 
   .desktop-header {
->>>>>>> master
     @include flexCenter(row);
     height: 100%;
     margin-left: 5px;
@@ -154,10 +148,8 @@
     display: none;
   }
 }
-<<<<<<< HEAD
-//}
-=======
->>>>>>> master
+}
 
 /*end media query*/
 /*End desktop only styles*/
+}
