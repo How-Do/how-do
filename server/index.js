@@ -50,6 +50,9 @@ app.get("/howdo/commentcount/:post_id", commentCtrl.getCommentCount)
 app.get("/howdo/chartpost/:id", chartCtrl.getPostsCount);
 app.get("/howdo/chartcomment/:id", chartCtrl.getCommentsCount);
 app.get("/howdo/chartdata/:id", chartCtrl.getPostCommentDataPerUser);
+app.get("/howdo/chartdownvote/:id", chartCtrl.getUpvotesCount);
+app.get("/howdo/chartupvote/:id", chartCtrl.getDownvotesCount);
+
 
 //vote endpoints
 app.post("/howdo/upvote/:comment_id", voteCtrl.upvoteComment);
