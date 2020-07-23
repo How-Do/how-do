@@ -75,6 +75,9 @@ function ChartThree() {
               position: "bottom",
               textColor: "#ffffff",
               borderWidth: 0,
+              labels: {
+                fontColor:'#ffff',
+              }
             },
             scales: {
               yAxes: [

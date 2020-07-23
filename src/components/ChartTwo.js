@@ -139,6 +139,9 @@ function ChartTwo(props) {
               fontColor: "white",
               borderWidth: 0,
               borderColor: false,
+              labels: {
+                fontColor:'#ffff',
+              }
             },
             scales: {
               yAxes: [

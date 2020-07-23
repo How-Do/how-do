@@ -335,9 +335,13 @@
   border: 1px solid #5f5e5e;
   width: 50vw;
   height: 200px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #c5c4c4;
   font-size: 12pt;
+  -webkit-box-shadow: 0px 12px 18px -6px black;
+          box-shadow: 0px 12px 18px -6px black;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .post-comment-container .minor-info-text {
@@ -359,7 +363,6 @@
   font-family: Helvetica;
   font-size: 12pt;
   color: #fdfdfd;
-  border-radius: 1px;
   padding-top: 1px;
   background-color: rgba(245, 238, 238, 0.247);
   border: 1px solid #5f5e5e;
@@ -368,6 +371,13 @@
   padding: 5px;
   margin-left: 10px;
   margin-top: 10px;
+  border-radius: 5px;
+}
+
+.add-comment-title, .post-description, #comment-text {
+  color: white;
+  font-family: Helvetica;
+  font-size: 14pt;
 }
 
 #add-comment-container {
@@ -386,18 +396,20 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 5px;
 }
 
 #add-comment-container .add-comment-button, #add-comment-container .add-comment-input {
   font-family: Helvetica;
   font-size: 12pt;
   color: #fdfdfd;
-  border-radius: 1px;
   padding-top: 1px;
   background: rgba(0, 0, 0, 0.123);
   border: 1px solid #5f5e5e;
   padding: 5px;
   margin-top: 10px;
+  border-radius: 5px;
+  margin: 5px;
 }
 
 .post-title {
@@ -416,8 +428,11 @@
   background-color: rgba(51, 51, 51, 0.973);
   border: 1px solid #5f5e5e;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   width: 70%;
+  -webkit-box-shadow: 0px 12px 18px -6px black;
+          box-shadow: 0px 12px 18px -6px black;
+  border-radius: 5px;
 }
 
 .AddPost-green-container {
@@ -763,6 +778,8 @@
   margin-top: 50px;
   border-radius: 5px;
   margin: 10px;
+  -webkit-box-shadow: 0px 12px 18px -6px black;
+          box-shadow: 0px 12px 18px -6px black;
 }
 
 /* ====================== Mobile styles ========================== */
@@ -1308,18 +1325,25 @@
 
 .profile-pic {
   height: 250px;
-  width: 250px;
+  width: 350px;
   background-position: center;
   -o-object-fit: cover;
      object-fit: cover;
   margin: 10px;
-  margin-right: 50px;
-  margin-left: 50px;
 }
 
 .userinfo-text {
   color: white;
   margin-bottom: 5px;
+}
+
+#profile-box {
+  padding-bottom: 10px;
+}
+
+.userinfo-text-container {
+  padding: 5px;
+  height: 200px;
 }
 
 .about {
@@ -1545,7 +1569,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  right: 20px;
 }
 
 .userinfo-green-container {
@@ -1563,32 +1586,28 @@
   padding-top: 2px;
   border-radius: 5px;
   color: white;
-  background-color: rgba(245, 238, 238, 0.247);
+  background: rgba(0, 0, 0, 0.123);
   border: 1px solid #5f5e5e;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
   z-index: 10;
-  margin: 10px;
-  margin-left: 310px;
+  margin-left: 170px;
 }
 
 .userinfo-green-container:hover {
   -webkit-box-shadow: 0px 0px 6px white;
           box-shadow: 0px 0px 6px white;
-  background-color: rgba(245, 238, 238, 0.247);
+  background: rgba(0, 0, 0, 0.123);
   border: 1px solid #5f5e5e;
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
 }
 
 .userinfo-edit-button {
   color: white;
   position: absolute;
-  top: -20px;
+  right: 140px;
+  margin: 0px;
+  z-index: -1;
 }
 
 .userinfo-box-entered {
-  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1602,28 +1621,26 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  left: -70vw;
-  top: -65vh;
+  left: -31vw;
+  top: -55vh;
   background: rgba(0, 0, 0, 0.651);
   border: 1px solid #5f5e5e;
   -webkit-backdrop-filter: blur(50%);
           backdrop-filter: blur(50%);
+  border-radius: 5px;
 }
 
 .userinfo-box-exited {
+  position: fixed;
   left: -120vw;
   top: -40vh;
-}
-
-.info-text {
-  font-size: 30pt;
-  margin-bottom: 10px;
+  width: 350px;
+  height: 400px;
 }
 
 .userinfo-form {
-  width: 50vw;
-  height: 50vw;
-  background: rgba(0, 0, 0, 0.651);
+  width: 330px;
+  height: 400px;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1638,6 +1655,49 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 5px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+
+.userinfo-text {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.userinfo-form-text {
+  margin: 0;
+  font-size: 12pt;
+  font-weight: 600;
+  color: lightgray;
+}
+
+.userinfo-textarea {
+  margin-bottom: 10px;
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 5px;
+}
+
+.userinfo-textarea:focus {
+  margin-bottom: 10px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 5px;
+}
+
+.userinfo-form-input {
+  width: 80%;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: white;
+  font-size: 16px;
 }
 
 .userinfo-box-entering {
@@ -1652,6 +1712,20 @@
           animation-name: leaving;
   -webkit-animation-duration: 0s;
           animation-duration: 0s;
+}
+
+.userinfo-submit-button {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 80px;
+  margin: 5px;
+  padding: 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(0, 0, 0, 0.15))), radial-gradient(at top center, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #989898;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.4) 120%) #989898;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
 @keyframes entering {
@@ -1676,71 +1750,6 @@
   }
 }
 
-@media (min-width: 1200px) {
-  .userinfo-form {
-    width: 40vw;
-    height: 40vw;
-  }
-  .userinfo-box-entered {
-    position: fixed;
-    left: -70vw;
-    top: -65vh;
-    background: rgba(0, 0, 0, 0.651);
-    border: 1px solid #5f5e5e;
-    -webkit-backdrop-filter: blur(6px);
-            backdrop-filter: blur(6px);
-  }
-}
-
-/* ====================== Mobile styles ========================== */
-@media only screen and (min-width: 300px) {
-  .userinfo-box-entered {
-    left: -54vw;
-    top: -70vh;
-  }
-  .userinfo-form {
-    width: 40vw;
-    height: 40vw;
-  }
-}
-
-/*End mobile and up styles*/
-/* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
-@media only screen and (min-width: 768px) {
-  .userinfo-box-entered {
-    left: -54vw;
-    top: -70vh;
-  }
-  .userinfo-form {
-    width: 40vw;
-    height: 40vw;
-  }
-}
-
-/*end media query*/
-/*End tablet and up styles*/
-/* ====================== Tablet Landscape and Up (Overrides Mobile and Tablet Portrait Styles) ========================== */
-/*end media query*/
-/*End landscape tablet and up styles*/
-/* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
-@media only screen and (min-width: 1200px) {
-  .userinfo-box-entered {
-    left: -5vw;
-    top: -40vh;
-    z-index: 100;
-  }
-  .userinfo-box-exited {
-    left: -120vw;
-    top: -40vh;
-  }
-  .userinfo-form {
-    width: 45vw;
-    height: 30vw;
-  }
-}
-
-/*end media query*/
-/*End desktop only styles*/
 * {
   margin: 0;
   border: 0;

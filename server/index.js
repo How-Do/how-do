@@ -109,18 +109,6 @@ massive({
 
           .catch(err => console.log(err));
       });
-      // socket.on("update-user-info", body => {
-      //   db.update_info(
-      //     body.userId,
-      //     body.username,
-      //     body.email,
-      //     // body.password,
-      //     body.profilePic,
-      //     body.userDescription,
-      //   )
-      //     .then(results => io.in("comments-section").emit("sent-post", results))
-      //     .catch(err => console.log(err));
-      // });
     });
   })
   .catch((error) => console.log(error))
