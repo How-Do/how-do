@@ -53,10 +53,10 @@
     }
   }
 }
-
 .desktop-header {
   display: none;
 }
+
 
 /*End mobile and up styles*/
 /* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
@@ -75,81 +75,87 @@
 /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
 @media only screen and (min-width: 1200px) {
 
-.header-bar {
-  @include flexCenter(row);
-  position: fixed;
-  justify-content: space-around;
-  height: 10vh;
-  width: 100vw;
-  @include opaque-blur;
-  margin-top: 10px;
-  z-index: 7;
-
-  .logo-block {
-
-  .desktop-header {
-    @include flexCenter(row);
-    height: 100%;
-    margin-left: 5px;
-
-    .logo {
-      height: 100%;
-    }
-
-    h1 {
-      margin-left: 5px;
-      text-shadow: 2px 2px black;
-    }
-  }
-
-  .search-block {
-    align-items: center;
-    height: 100%;
-    width: 30%;
-    font-size: 95%;
-    display: flex;
-    margin-left: 20px;
-    ::placeholder {
-      font-size: large;
-      color: rgb(172, 169, 169);
-    }
-
-    input {
-      width: 100%;
-      align-items: center;
-      border: 1px solid rgb(95, 94, 94);
-      background: rgba(0, 0, 0, 0.123);
-      height: 40px;
-      color: white;
-      font-size: 1.2em;
-      border-radius: 5px;
-    }
-
-    input:hover {
-      box-shadow: $whiteGlow;
-    }
-  }
-
-  .links {
+  .header-bar {
     @include flexCenter(row);
     justify-content: space-between;
-    width: 35%;
-    margin: 5%;
+    position: fixed;
+    height: 10vh;
+    width: 100%;
+    @include opaque-blur;
+    margin-top: 10px;
+    z-index: 7;
 
-    a {
-      font-size: x-large;
-      //text-shadow: 2px 2px black;
+
+    .desktop-header {
+      @include flexCenter(row);
+      height: 100%;
+      width: 100%;
+      //margin-left: 5px;
+
+      .logo-block {
+        @include flexCenter(row);
+        height: 10vh;
+        .logo {
+          height: 100%;
+        }
+
+        h1 {
+          margin-left: 5px;
+          text-shadow: 2px 2px black;
+        }
+      }
+
+      .search-block {
+        align-items: center;
+        height: 100%;
+        width: 30%;
+        font-size: 95%;
+        display: flex;
+        margin-left: 20px;
+
+        ::placeholder {
+          font-size: large;
+          color: rgb(172, 169, 169);
+        }
+
+        input {
+          width: 100%;
+          align-items: center;
+          border: 1px solid rgb(95, 94, 94);
+          background: rgba(0, 0, 0, 0.123);
+          height: 40px;
+          color: white;
+          font-size: 1.2em;
+          border-radius: 5px;
+        }
+
+        input:hover {
+          box-shadow: $whiteGlow;
+        }
+      }
+
+      .links {
+        @include flexCenter(row);
+        justify-content: space-between;
+        width: 35%;
+        margin: 5%;
+
+        a {
+          font-size: x-large;
+          //text-shadow: 2px 2px black;
+        }
+
+        .logout-div {
+          padding-right: 30px;
+        }
+      }
     }
-    .logout-div {
-      padding-right: 30px;
+
+    .mobile-header {
+      display: none;
     }
   }
-  .mobile-header {
-    display: none;
-  }
-}
 }
 
 /*end media query*/
 /*End desktop only styles*/
-}
