@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import ChartOne from "./ChartOne";
 import ChartTwo from "./ChartTwo";
 import ChartThree from "./ChartThree";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import UserInfo from "./UserInfo";
 
 const Profile = () => {
   const user = useSelector((reduxState) => reduxState.reducer.user);
+  const dispatch = useDispatch()
 
   const [email, setEmail] = useState(user.email);
   const [username, setUsername] = useState(user.username);
@@ -36,7 +37,7 @@ const Profile = () => {
             {email}
             {userDescription}
           </p>
-          {/* <UserInfo /> */}
+          <UserInfo />
         </div>
 
         <div className="outer-chart-container">

@@ -2,13 +2,15 @@ import React, { useState, useCallback, useEffect } from "react";
 import "./../styles/styles.css";
 import { HamburgerArrow } from "react-animated-burgers";
 import { Transition } from "react-transition-group";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import {setUser} from "../redux/reducer";
 
 function UserInfo({ socket }) {
     const user = useSelector((reduxState) => reduxState.reducer.user);
+    const dispatch = useDispatch()
 
     const userId = useSelector((reduxState) =>
     reduxState.reducer.user ? reduxState.reducer.user.user_id : null);
@@ -42,6 +44,18 @@ function UserInfo({ socket }) {
   //console.log('USERID', userId);
   console.log("USER PROPS 2", userId);
 
+
+//   useEffect(() => {
+//     axios
+//         .get('/howdo/posts')
+//         .then((res) => {
+//             setPosts(res.data)
+//             dispatch(setUsers(res.data))
+//         })
+//         .catch((error) => console.log(error))
+// }, [])
+
+
   const update = async (e) => {
     e.preventDefault();
     await axios
@@ -57,7 +71,7 @@ function UserInfo({ socket }) {
         toast.success("Profile has been successful updated", {
           position: toast.POSITION.BOTTOM_RIGHT
         });
-        //props.setUser(res.data);
+         dispatch(setUser(res.data))
       })
       .catch((err) => {
         alert("Could not update user information");
