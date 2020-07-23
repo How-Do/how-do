@@ -14,14 +14,12 @@
     //height: 10vh;
     margin-left: 5px;
 
-
     .logo {
       height: 50px;
     }
 
     img:hover {
-    box-shadow: $whiteGlow;
-
+      box-shadow: $whiteGlow;
     }
     h1 {
       margin-left: 5px;
@@ -57,11 +55,9 @@
   display: none;
 }
 
-
 /*End mobile and up styles*/
 /* ====================== Tablet Portrait and Up (Overrides Mobile Styles) ========================== */
 @media only screen and (min-width: 768px) {
-
 }
 
 /*end media query*/
@@ -74,7 +70,6 @@
 
 /* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
 @media only screen and (min-width: 1200px) {
-
   .header-bar {
     @include flexCenter(row);
     justify-content: space-between;
@@ -84,7 +79,6 @@
     @include opaque-blur;
     margin-top: 10px;
     z-index: 7;
-
 
     .desktop-header {
       @include flexCenter(row);
@@ -136,7 +130,7 @@
 
       .links {
         @include flexCenter(row);
-        justify-content: space-between;
+        justify-content: space-around;
         width: 35%;
         margin: 5%;
 
@@ -145,8 +139,9 @@
           //text-shadow: 2px 2px black;
         }
 
-        .logout-div {
+        .login-div {
           padding-right: 30px;
+          margin-right: 2vw;
         }
       }
     }

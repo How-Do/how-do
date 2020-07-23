@@ -67,9 +67,17 @@ const Header = () => {
           />
         </div>
         <div className='links'>
-          <Link onClick={showMenu} to={'/'}> Dashboard </Link>
-          <Link onClick={showMenu} to={'/profile'}> Profile </Link>
-          <Link onClick={showMenu} to={'/about'}> About</Link>
+          <Link onClick={showMenu} to={'/'}>
+            Dashboard
+          </Link>
+          {stateTwo.user ? (
+            <Link onClick={showMenu} to={'/profile'}>
+              Profile
+            </Link>
+          ) : null}
+          <Link onClick={showMenu} to={'/about'}>
+            About
+          </Link>
         </div>
         <div>
           {stateTwo.user ? (
@@ -80,7 +88,7 @@ const Header = () => {
             </div>
           ) : (
             <div className='login-div'>
-              <Login onClick={showMenu}/>
+              <Login onClick={showMenu} />
             </div>
           )}
         </div>
@@ -101,9 +109,19 @@ const Header = () => {
         </div>
         <div id='mobile-links'>
           <div className='mobile-links-container'>
-            <Link onClick={showMenu} to={'/'}> Dashboard </Link>
-            <Link onClick={showMenu} to={'/profile'}> Profile </Link>
-            <Link onClick={showMenu} to={'/about'}> About </Link>
+            <Link onClick={showMenu} to={'/'}>
+              {' '}
+              Dashboard{' '}
+            </Link>
+            {stateTwo.user ? (
+              <Link onClick={showMenu} to={'/profile'}>
+                Profile
+              </Link>
+            ) : null}
+            <Link onClick={showMenu} to={'/about'}>
+              {' '}
+              About{' '}
+            </Link>
           </div>
           <div>
             {stateTwo.user ? (
@@ -114,7 +132,7 @@ const Header = () => {
               </div>
             ) : (
               <div className='mobile-login-div'>
-                <Login onClick={showMenu}/>
+                <Login onClick={showMenu} />
               </div>
             )}
           </div>
