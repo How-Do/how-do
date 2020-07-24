@@ -89,3 +89,7 @@ values
 update users
 set "profile_pic" = 'https://cdn.shopify.com/s/files/1/2830/0642/products/craft-stamp-owl-silhouette-stamp-718949220400.jpg?v=1578746372'
 where id = 6;
+
+update posts
+set "post_pic" = 'https://pixabay.com/photos/animal-dog-pet-puppy-pug-1284307/'
+where post_id = 91
