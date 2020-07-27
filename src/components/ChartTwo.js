@@ -68,8 +68,8 @@ function ChartTwo(props) {
     setState({
       chartData: {
         labels:
-          ['Home Improvement',
-          'Hobbies',
+          ['Hobbies',
+          'Home Improvement',
           'Life Hacks',
           'Food & Drink',
           'Outdoors'],

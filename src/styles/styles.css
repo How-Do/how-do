@@ -1352,7 +1352,8 @@
 
 .userinfo-text-container {
   padding: 5px;
-  height: 200px;
+  min-height: 200px;
+  max-width: 330px;
 }
 
 .about {
